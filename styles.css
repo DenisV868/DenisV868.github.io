@@ -249,3 +249,91 @@ input[type = "text"].high1{
     }
 
 }
+
+@media (max-width: 662px) {
+
+    #add{
+        position: relative;
+        top: 40px;
+        right: 470px;
+    }
+    #remove{
+        position: relative;
+        left: 70px;
+        top: 3.5px;
+    }
+
+    #done{
+        width: 88px;
+        position: relative;
+        left: 370px;
+        bottom: 34px;
+    }
+
+    #removeIn{
+        position: relative;
+        left: 165px;
+        bottom: 34px;
+    }
+
+
+}
+
+@media (max-width: 576px) {
+
+    #toDosH{
+        position: relative;
+        top: 40px;
+    }
+
+    #add{
+        width: 100px;
+        position: relative;
+        top: 50px;
+        right: 0;
+    }
+    #remove{
+        width: 100px;
+        position: relative;
+        left: 16px;
+        top: 50px;
+    }
+
+    #done{
+        width: 190px;
+        position: relative;
+        left: 225px;
+        bottom: 28px;
+    }
+
+    #removeIn{
+        position: relative;
+        bottom: 74px;
+        left: 225px;
+    }
+
+    #date{
+        position: relative;
+        top: 45px;
+        right: 237px;
+    }
+
+    #edit{
+        width: 100px;
+        position: relative;
+        left:120px;
+        top: 1px;
+        bottom: 10px;
+    }
+
+    footer{
+        position: relative;
+        top: 20px;
+    }
+
+    #darkMod{
+        width: 70px;
+        top: 1px;
+    }
+
+}
