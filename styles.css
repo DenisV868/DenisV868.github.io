@@ -1,0 +1,251 @@
+
+/*body{
+    background-color: lightgrey;
+    margin: 0;
+}
+
+#toDosH {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#header{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: cornflowerblue;
+    height: 100px;
+    width: 100%; /* Ensure it spans the entire width */
+    /*position: relative; /* Use absolute if you need it fixed */
+    /*margin: 0; /* No margin */
+    /*padding: 0; /* No padding */
+/*}
+
+#textInHeader{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    top: 30px;
+    /*left: 10px;*/
+/*}
+
+/*li{
+    font-family: 'Garamond', serif;
+    position: relative;
+    /*left: 10px;*/
+    /*transition: opacity 0.5s ease-in-out;
+/*}
+
+li.show{
+    opacity: 1;
+}
+
+#currentDate,#new, #date, #add, #remove,#textInHeader,#toDos, #toDosH, #removeIn, #done, #info{
+    margin-left: 10px;
+}
+
+/*.menu-container {
+    background-color: #333;
+    padding: 10px;
+}
+
+/* Menu styles */
+/*.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu > li {
+    position: relative;
+}
+
+.menu > li > a {
+    display: block;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.menu > li > a:hover {
+    background-color: #575757;
+}
+
+/* Dropdown content (hidden by default) */
+/*.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+    padding: 0;
+}
+
+.dropdown-content li a {
+    display: block;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.dropdown-content li a:hover {
+    background-color: #575757;
+}*/
+
+/* Obecné styly pro tělo */
+body {
+    font-family: Arial, sans-serif; /* Používáme písmo Arial */
+    /*background-color: #f0f0f0; /* Světle šedé pozadí */
+    margin: 0; /* Zrušení okrajů */
+    padding: 20px; /* Přidání výplně */
+}
+
+/* Styly pro hlavičku */
+#header {
+    /*background-color: #4CAF50; /* Zelené pozadí */
+    color: white; /* Bílý text */
+    padding: 10px; /* Přidání výplně */
+    text-align: center; /* Středění textu */
+}
+
+/* Styly pro aktuální datum */
+#currentDate {
+    font-size: 18px; /* Velikost písma */
+    margin-bottom: 10px; /* Spodní okraj */
+}
+
+/* Styly pro informace */
+#info {
+    color: #555; /* Tmavě šedý text */
+    font-size: 14px; /* Velikost písma */
+    margin-bottom: 20px; /* Spodní okraj */
+
+}
+
+/* Styly pro vstupy */
+input[type="text"] {
+    width: 200px; /* Šířka vstupního pole */
+    padding: 10px; /* Přidání výplně */
+    margin-right: 10px; /* Pravý okraj */
+    border: 1px solid #ccc; /* Světle šedý okraj */
+    border-radius: 4px; /* Zaoblení rohů */
+}
+
+/* Styly pro tlačítka */
+#add,#remove,#edit,#darkMod,#changeColor,#done {
+    padding: 10px 15px; /* Přidání výplně */
+    border: none; /* Bez okraje */
+    border-radius: 4px; /* Zaoblení rohů */
+    /*background-color: #4CAF50; /* Zelené pozadí */
+    color: white; /* Bílý text */
+    cursor: pointer; /* Změna kurzoru na ruku */
+}
+
+/* Změna barvy tlačítka při najetí myší */
+/*#add:hover {
+    background-color: #45a049; /* Tmavší zelená při najetí */
+/*}
+
+/* Styly pro nadpis úkolů */
+#toDosH {
+    font-size: 20px; /* Velikost písma */
+    margin-top: 20px; /* Horní okraj */
+}
+
+/* Styly pro seznam úkolů */
+#toDos {
+    list-style-type: none; /* Zrušení odrážek */
+    padding: 0; /* Zrušení výplně */
+    margin: 0;
+}
+
+/* Styly pro jednotlivé úkoly v seznamu */
+#toDos li {
+    background-color: white; /* Bílé pozadí */
+    margin: 5px 0; /* Horní a dolní okraj */
+    padding: 10px; /* Přidání výplně */
+    border: 1px solid #ccc; /* Světle šedý okraj */
+    border-radius: 4px; /* Zaoblení rohů */
+    width: 600px;
+}
+
+li.highlight {
+    background-color: #90EE90 !important; /* Zde je barva pozadí pro zvýrazněné úkoly */
+}
+
+
+/*#remove:hover{
+    background-color: crimson;/*přejedeme myší přes tlačítko odstranit zčervená*/
+/*}*/
+
+#edit{
+    position: relative;
+    left: 120px;
+    bottom: 45px;
+}
+
+#darkMod{
+    position: relative;
+    left: 130px;
+    bottom: 45px;
+}
+
+/*#edit:hover{
+    background-color: darkblue;
+}*/
+
+li > button{
+    background: transparent;
+    color: grey;
+    border: transparent;
+    cursor: pointer;
+}
+input[type="checkbox"]{
+    position: relative;
+    top: 2px;
+}
+
+li.high{
+    background-color: #FF7F7F  !important;
+}
+
+#removeIn {
+    position: relative;
+    left: 642px;
+    bottom: 37px;
+    width: 190px; /* Šířka vstupního pole */
+    padding: 10px; /* Přidání výplně */
+    margin-right: 10px; /* Pravý okraj */
+    border: 1px solid #ccc; /* Světle šedý okraj */
+    border-radius: 4px; /* Zaoblení rohů */
+}
+
+#done{
+    position: relative;
+    left: 842px;
+    bottom: 36px;
+}
+
+#removeOptionsContainer{
+    height: 0;
+    width: 0;
+}
+
+input[type = "text"].high1{
+    background-color: #FF7F7F  !important;
+}
+
+@media (max-width: 936px) {
+
+    #done{
+        position: relative;
+        left: 200px;
+        bottom: 0;
+    }
+
+    #removeIn{
+        position: relative;
+        left: 0;
+        bottom: 0;
+    }
+
+}
