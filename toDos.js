@@ -555,19 +555,8 @@ if (data) {
     dateInput.keypress(function (e) {
         if (13 === e.keyCode) {// přidá, pokud je stisknuto enter, kód pro enter je 13
 
-            if (input.val().length === 0 && dateInput.val().length === 0) {
-                alert("chybí nazev úkolu a datum")
+            adding();// volání funkce add
 
-            }
-            else if (input.val().length === 0) {
-                alert("chybí nazev úkolu")
-            }
-            else if (dateInput.val().length === 0) {
-                alert("chybí datum")
-            }
-            if(input.val.length > 0 && dateInput.val().length > 0) {
-                adding();// volání funkce add
-            }
             if (jsonList.items.length !== 0) {
                 count++;
             }else{
@@ -658,19 +647,19 @@ if (data) {
         }
     });
 
-    $("#removeOptionsToggle").click(function() {
+    $("#removeOptionsToggle").click(function() {//rozbalování rozbalovacího menu
         $("#removeIn").slideToggle();
     });
 
-    removeInput.on("click","option[value=vše]",function() {
+    removeInput.on("click","option[value=vše]",function() {//získání hodnoty z stisknuté volby z menu
         removeInput.val("vše");
     })
 
-    removeInput.on("click","option[value=odškrtnuté]",function() {
+    removeInput.on("click","option[value=odškrtnuté]",function() {//získání hodnoty z stisknuté volby z menu
         removeInput.val("odškrtnuté");
     })
 
-    removeInput.on("click","option[value=neodškrtnuté]",function() {
+    removeInput.on("click","option[value=neodškrtnuté]",function() {//získání hodnoty z stisknuté volby z menu
         removeInput.val("neodškrtnuté")
     })
 
@@ -683,13 +672,13 @@ if (data) {
             if (0 >= count) {
                 count = 0;// nulování
                 datesCount = 0// nulování
-            } if (jsonList.items.length > 0) {
+            } if (jsonList.items.length > 0) {//controla počtu úkolu
                 removeInput.show(); // zobrazení removeInput
                 done.css("background-color", jsonList.colorsH[0]);
                 done.show(); // zobrazení tlačítka hotovo
                 //info.show(); // zobrazení informací
-                if(removeInput.val() === "vše") {
-                    let conformation = confirm("opravdu chcete odstranit všechny úkoly")
+                if(removeInput.val() === "vše") {//odstranění všech úkolu
+                    let conformation = confirm("opravdu chcete odstranit všechny úkoly")//potvrzen9
                     if (conformation) {
                         jsonList.items = []; // odstranění všech prvků z json pole
                         jsonList.dates = []; // odstranění všech prvků z json pole
@@ -705,35 +694,41 @@ if (data) {
                         btnPress++;
                     }
                 }
-                if(removeInput.val() === "odškrtnuté"){
-                    $(".highlight").remove()
-                    for (let i = jsonList.checkboxState.length - 1; i >= 0; i--) {
-                        if(jsonList.checkboxState[i]===1){
-                            jsonList.checkboxState.splice(i,1)
-                            jsonList.items.splice(i,1)
-                            jsonList.dates.splice(i,1)
-                            actualization();
-                            renderSortedTasks()
+                if(removeInput.val() === "odškrtnuté"){//odstranění všech odškrtnutých úkolu
+                    let conformation = confirm("opravdu chcete odstranit všechny odškrtnuté úkoly")//potvrzen9
+                    if (conformation) {
+                        $(".highlight").remove()
+                        for (let i = jsonList.checkboxState.length - 1; i >= 0; i--) {
+                            if (jsonList.checkboxState[i] === 1) {
+                                jsonList.checkboxState.splice(i, 1)
+                                jsonList.items.splice(i, 1)
+                                jsonList.dates.splice(i, 1)
+                                actualization();
+                                renderSortedTasks()
+                            }
                         }
+                        btnPress++;
                     }
-                    btnPress++;
                 }
 
-                if(removeInput.val() === "neodškrtnuté"){
-                    for (let i = jsonList.checkboxState.length - 1; i >= 0; i--) {
-                        if(jsonList.checkboxState[i]===0){
-                            let li = $("#"+i);
-                            if(li.attr("class") !== "highlight"){
-                                li.remove();
+                if(removeInput.val() === "neodškrtnuté"){//odstranění všech neodškrtnutých úkolu
+                    let conformation = confirm("opravdu chcete odstranit všechny neodškrtnuté úkoly")//potvrzen9
+                    if (conformation) {
+                        for (let i = jsonList.checkboxState.length - 1; i >= 0; i--) {
+                            if (jsonList.checkboxState[i] === 0) {
+                                let li = $("#" + i);
+                                if (li.attr("class") !== "highlight") {
+                                    li.remove();
+                                }
+                                jsonList.checkboxState.splice(i, 1)
+                                jsonList.items.splice(i, 1)
+                                jsonList.dates.splice(i, 1)
+                                actualization();
+                                renderSortedTasks()
                             }
-                            jsonList.checkboxState.splice(i,1)
-                            jsonList.items.splice(i,1)
-                            jsonList.dates.splice(i,1)
-                            actualization();
-                            renderSortedTasks()
                         }
+                        btnPress++;
                     }
-                    btnPress++;
                 }
                 /*let idToRemove = $("#" + Number(removeInput.val()));//výběr úkolu na odstranění
                 idToRemove.remove();//odstranění
