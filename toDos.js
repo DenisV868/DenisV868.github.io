@@ -7,7 +7,11 @@ let jsonList = {
     "darkModeState": []
 }
 
+localStorage.setItem("todos", JSON.stringify(jsonList));
+
 $(document).ready(function() {
+
+    let data = localStorage.getItem("toDos")// data z místního úložiště
 
 
     const add = $("#add"); // tlačítko přidat
@@ -68,10 +72,6 @@ let day = currentDate.getDate();
 let current = $("#currentDate")
 current.text("Datum: "+ day + '. ' + month + '. ' + year);
 let dateInput = $("#date");
-
-
-let data = localStorage.getItem("toDos")// data z místního úložiště
-jsonList.items.length === 0 ? localStorage.setItem("toDos", JSON.stringify(jsonList)) : data;
 
 const list = $("#toDos");// ul v html
 
