@@ -141,6 +141,11 @@ input[type = "text"].high1{
     background-color: #FF7F7F  !important;
 }
 
+li.hev{
+    transition: 1000ms ease;
+    background-color: #90EE90;
+}
+
 @media (max-width: 936px) {
 
     #done{

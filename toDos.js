@@ -566,6 +566,17 @@ if (data) {
         }
     })
 
+    list.on("mouseenter", "input[type=checkbox]", function () {
+
+        let liEl = $(this).closest("li");
+        liEl.addClass("hev")
+
+    })
+
+    list.on("mouseleave", "input[type=checkbox]", function () {
+        let liEl = $(this).closest("li");
+        liEl.removeClass("hev")
+    })
 
     if (0 === inputPress) { // nastavte skrytou pozici tlačítka hotovo a removeInput jako skryté
         removeInput.hide(); // skrytí vstupu pro odstraňování
