@@ -7,7 +7,7 @@ let jsonList = {
     "darkModeState": []
 }
 
-localStorage.setItem("todos", JSON.stringify(jsonList));
+
 
 $(document).ready(function() {
 
