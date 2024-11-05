@@ -79,6 +79,9 @@ if (data) {
 
     // Převeďte JSON řetězec na objekt
     jsonList = JSON.parse(data);
+    console.log(data);
+
+}
     // zajistěte, aby existovala data
     if (!Array.isArray(jsonList.dates) || jsonList.dates.length === 0){
         jsonList.dates = []; // Inicializujte pole dat, pokud neexistuje
@@ -164,7 +167,6 @@ if (data) {
 
     let darkModeBtnPress = 0;
 
-    console.log(data);
 
     changeColorV.css("background-color", jsonList.colorsH[0]);// vypbarvení na uložené barvy
     header.css("background-color", jsonList.colorsH[0]);
@@ -766,5 +768,5 @@ if (data) {
         localStorage.setItem("toDos", JSON.stringify(jsonList));
     })
 
-}
+
 })
