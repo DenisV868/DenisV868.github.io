@@ -142,7 +142,7 @@ input[type = "text"].high1{
 }
 
 li.hev{
-    transition: 1000ms ease;
+    transition: 500ms ease;
     background-color: #90EE90;
 }
 
