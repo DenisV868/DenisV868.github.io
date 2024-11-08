@@ -1,30 +1,18 @@
 import React from "react";
-/*import htmlLogo from './html_logo.png';
-import cssLogo from './css_logo.png';
-import jsLogo from './js_logo.png';
-import reactLogo from './react_logo.png';
-
-/*const techs = {
-    "html":htmlLogo,
-    "css":cssLogo,
-    "js":jsLogo,
-    "react":reactLogo
-}
-
-function tech() {
+/*function tech(props) {
 
  return(
      <div style={{display: 'inline'}}>
-     <img src={techs.html} alt=""/>
-     <img src={techs.css} alt=""/>
-     <img src={techs.js} alt=""/>
-     <img src={techs.react} alt=""/>
+     <img src={props.html} alt=""/>
+     <img src={props.css} alt=""/>
+     <img src={props.js} alt=""/>
+     <img src={props.react} alt=""/>
  </div>)
 
-}
+}*/
 
-export default tech;*/
-
+//export default tech;
+/*
 function sub() {
 
     return(<div style={{textAlign:"center",background: "rgba(173, 216, 230, 0.5)"}}>
@@ -38,8 +26,29 @@ function sub() {
         <div style={{alignContent: "center"}}>
             <button style={{margin:"10px", background:"red", color:"white", border: "1px solid red", borderRadius:"4px", width:"200px",height:"30px"}}>Subscribe</button>
         </div>
-    </div>)
+    </div>)*/
 
+/*}
+
+export default sub;*/
+
+function Numbers(props) {
+
+    const list = props.numbers.map((number)=><li>{number}</li>);
+    return <ul style={{display:"inline-block"}}>{list}</ul>
 }
 
-export default sub;
+export default Numbers;
+
+const checkPrime = (n) => {
+    if (n <= 1) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+};
+
