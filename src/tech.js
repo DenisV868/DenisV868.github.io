@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from "react";
 /*function tech(props) {
 
  return(
@@ -32,10 +33,17 @@ function sub() {
 
 export default sub;*/
 
+/*const getColor = (num) => {
+    if(checkPrime(num)){return "red"}
+    if(num%2===0){return "yellow"}
+    else{return "green"}
+
+}
+
 function Numbers(props) {
 
-    const list = props.numbers.map((number)=><li>{number}</li>);
-    return <ul style={{display:"inline-block"}}>{list}</ul>
+    return props.numbers.map((number)=>(<td style={{background:getColor(number)}}>{number}</td>))
+
 }
 
 export default Numbers;
@@ -50,5 +58,41 @@ const checkPrime = (n) => {
         }
     }
     return true;
-};
+};*/
 
+const List = ({inputRef}) => {
+
+    const [element, setElement] = useState([]);
+    let input = inputRef
+    function add() {
+        if(inputRef.current) {
+            input.current.focus();
+            // append in react
+            setElement(prevState => [...prevState, input.current.value])
+        }
+        input.current.value = "";
+    }
+
+    function remove() {
+        if(inputRef.current && element.length > 0) {
+            // the pop method
+            setElement(element.slice(0, element.length - 1))
+
+        }else{
+            alert("There are no elements in the list")
+        }
+    }
+
+    return (<div className={"containerForList"}>
+
+        <button onClick={add}>add</button>
+        <button onClick={remove}>remove</button>
+        <ul>The list
+            {element.map((item,index) => <li key={index}>{item}</li>)}
+        </ul>
+
+    </div>)
+
+}
+
+export default List
