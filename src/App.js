@@ -22,23 +22,36 @@ let techs = {
 }*/
 import List from "./tech";
 
-const InputVal = ({inputRef}) => {
+const date = new Date();
+const year = date.getFullYear();
+const month = date.getMonth() + 1;
+const day = date.getDate();
+let dateFormat = day + '.' + month + '.' + year;
 
-    return(<input type="text" ref={inputRef} />)
+
+const InputVal = ({inputRef,dateInputRef},) => {
+
+    return(<div>
+                <input type="text" placeholder={"put a todo here"} ref={inputRef}/>
+                < input type = "text" placeholder={"put the date of completion here"} ref = {dateInputRef}/>
+        </div>
+    )
 
 }
 
 function App() {
 
     const inputRef = createRef(null);
+    const dateInputRef = createRef(null)
 
     return (
     <div className="App">
       <header className="App-header">
         <p>React lab</p>
       </header>
-        <InputVal inputRef={inputRef} />
-        <List inputRef={inputRef}/>
+        <p>Date: {dateFormat}</p>
+        <InputVal inputRef={inputRef} dateInputRef={dateInputRef}/>
+        <List inputRef={inputRef} dateInputRef={dateInputRef}/>
     </div>
   );
 }

@@ -46,8 +46,23 @@ input[type='text']{
 div.containerForList > button{
 
   position: relative;
-  left: 170px;
+  left: 400px;
   margin: 5px;
 
 }
+ul > li {
+  width: 500px;
+  display: block;
+  border: 1px solid darkgrey;
+  padding: 5px;
+}
+
+
+div > input[placeholder = "put the date of completion here"]{
+
+  width: 200px;
+
+}
+
+
 

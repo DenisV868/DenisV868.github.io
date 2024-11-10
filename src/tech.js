@@ -60,17 +60,39 @@ const checkPrime = (n) => {
     return true;
 };*/
 
-const List = ({inputRef}) => {
+const List = ({inputRef,dateInputRef}) => {
 
     const [element, setElement] = useState([]);
     let input = inputRef
+    let dateInput = dateInputRef;
     function add() {
         if(inputRef.current) {
             input.current.focus();
-            // append in react
-            setElement(prevState => [...prevState, input.current.value])
         }
-        input.current.value = "";
+
+        let inputValue = inputRef.current?.value.trim();
+
+        if (dateInputRef.current){
+            dateInput.current.focus()
+        }
+
+        let dateInputValue = dateInputRef.current?.value.trim();
+
+        let combined = inputValue + " " +dateInputValue;
+
+        if (inputValue !== "" && dateInputValue !== "") {
+            // append in react
+            setElement(prevState => [...prevState, combined])
+        }
+
+        if(input.current) {
+            input.current.value = "";
+        }
+
+        if(dateInput.current){
+            dateInput.current.value = "";
+        }
+
     }
 
     function remove() {
