@@ -32,9 +32,9 @@ let dateFormat = day + '.' + month + '.' + year;
 const InputVal = ({inputRef,dateInputRef},) => {
 
     return(<div>
-                <input type="text" placeholder={"put a todo here"} ref={inputRef}/>
-                < input type = "text" placeholder={"put the date of completion here"} ref = {dateInputRef}/>
-        </div>
+                <input type="text" placeholder={"todo here"} ref={inputRef}/>
+                < input type = "text" placeholder={"date of completion here"} ref = {dateInputRef}/>
+           </div>
     )
 
 }
@@ -42,7 +42,7 @@ const InputVal = ({inputRef,dateInputRef},) => {
 function App() {
 
     const inputRef = createRef(null);
-    const dateInputRef = createRef(null)
+    const dateInputRef = createRef(null);
 
     return (
     <div className="App">

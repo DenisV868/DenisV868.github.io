@@ -65,6 +65,7 @@ const List = ({inputRef,dateInputRef}) => {
     const [element, setElement] = useState([]);
     let input = inputRef
     let dateInput = dateInputRef;
+
     function add() {
         if(inputRef.current) {
             input.current.focus();
@@ -83,6 +84,7 @@ const List = ({inputRef,dateInputRef}) => {
         if (inputValue !== "" && dateInputValue !== "") {
             // append in react
             setElement(prevState => [...prevState, combined])
+
         }
 
         if(input.current) {
@@ -95,11 +97,10 @@ const List = ({inputRef,dateInputRef}) => {
 
     }
 
-    function remove() {
+    function remove(index) {
         if(inputRef.current && element.length > 0) {
-            // the pop method
-            setElement(element.slice(0, element.length - 1))
-
+            // the remove the current element
+            setElement(element.filter((_, i) => i !== index));
         }else{
             alert("There are no elements in the list")
         }
@@ -107,10 +108,11 @@ const List = ({inputRef,dateInputRef}) => {
 
     return (<div className={"containerForList"}>
 
-        <button onClick={add}>add</button>
-        <button onClick={remove}>remove</button>
+        <button onClick={add} id={"add"}>add</button>
         <ul>The list
-            {element.map((item,index) => <li key={index}>{item}</li>)}
+            {element.map((item,index) => <li key={index}>{item}<input type="checkbox"/>
+                <button onClick={()=>remove(index)} className={"text-white bg-red-500 hover:bg-red-600 rounded-full p-2 focus:outline-none"} id={"rem"}>x</button>
+            </li>)}
         </ul>
 
     </div>)

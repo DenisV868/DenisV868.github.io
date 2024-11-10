@@ -39,29 +39,54 @@ img{
 }*/
 
 input[type='text']{
+  border: 1px solid grey;
   position: relative;
   top: 26px;
+  margin: 10px;
 }
 
-div.containerForList > button{
+div.containerForList > #add{
 
   position: relative;
   left: 400px;
-  margin: 5px;
+  margin: 15px;
+  border: 1px solid grey;
+  padding: 5px;
 
 }
+
+ul{
+  margin: 20px;
+}
+
 ul > li {
   width: 500px;
   display: block;
   border: 1px solid darkgrey;
   padding: 5px;
+  border-radius: 4px;
+  margin: 10px;
 }
 
 
-div > input[placeholder = "put the date of completion here"]{
+div > input[placeholder = "date of completion here"]{
 
   width: 200px;
 
+}
+
+input[type="checkbox"]{
+  position: relative;
+  top: 1px;
+  margin: 10px;
+}
+#rem{
+  position: relative;
+  bottom: 2px;
+}
+
+p{
+  margin: 10px;
 }
 
 
