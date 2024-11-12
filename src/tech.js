@@ -1,147 +1,131 @@
-import React, {createRef} from "react";
-import {useState} from "react";
-/*function tech(props) {
-
- return(
-     <div style={{display: 'inline'}}>
-     <img src={props.html} alt=""/>
-     <img src={props.css} alt=""/>
-     <img src={props.js} alt=""/>
-     <img src={props.react} alt=""/>
- </div>)
-
-}*/
-
-//export default tech;
-/*
-function sub() {
-
-    return(<div style={{textAlign:"center",background: "rgba(173, 216, 230, 0.5)"}}>
-        <h1>Subscribe</h1>
-        <p>Sign up with your email address to receive news and updates</p>
-        <div style={{display: "inline-block"}}>
-            <input type="text" placeholder="First name" style={{margin:"10px", borderRadius:"4px",border:"none"}}/>
-            <input type="text" placeholder="Last name" style={{margin:"10px", borderRadius:"4px",border:"none"}}/>
-            <input type="text" placeholder="E-mail" style={{margin:"10px", borderRadius:"4px",border:"none"}}/>
-        </div>
-        <div style={{alignContent: "center"}}>
-            <button style={{margin:"10px", background:"red", color:"white", border: "1px solid red", borderRadius:"4px", width:"200px",height:"30px"}}>Subscribe</button>
-        </div>
-    </div>)*/
-
-/*}
-
-export default sub;*/
-
-/*const getColor = (num) => {
-    if(checkPrime(num)){return "red"}
-    if(num%2===0){return "yellow"}
-    else{return "green"}
-
-}
-
-function Numbers(props) {
-
-    return props.numbers.map((number)=>(<td style={{background:getColor(number)}}>{number}</td>))
-
-}
-
-export default Numbers;
-
-const checkPrime = (n) => {
-    if (n <= 1) {
-        return false;
-    }
-    for (let i = 2; i <= Math.sqrt(n); i++) {
-        if (n % i === 0) {
-            return false;
-        }
-    }
-    return true;
-};*/
-
-let checkbox = createRef(null)
+import React, { useRef, useState } from "react";
 
 let objectCheckbox = {
     unchecked: false,
     checked: true,
-    stateArray:[]
-}
+    stateArray: []
+};
 
-const List = ({inputRef,dateInputRef}) => {
+const renderTasks = (list) => {
+    console.log("Task list state:", list);
+};
 
+const List = ({ inputRef, dateInputRef }) => {
     const [element, setElement] = useState([]);
-    let input = inputRef
-    let dateInput = dateInputRef;
+    const [checkedState, setCheckedState] = useState([]); // State to track the checked status of each checkbox
+
+    // Create refs for checkboxes as an empty array initially
+    const checkboxes = useRef([]);
+
+    const input = inputRef;
+    const dateInput = dateInputRef;
+
+    // Ensure we initialize empty refs for each checkbox in the list
+    const initializeRefs = (length) => {
+        // If checkboxes.current has fewer refs than needed, push new empty refs
+        while (checkboxes.current.length < length) {
+            checkboxes.current.push(React.createRef());
+        }
+    };
 
     function add() {
-        if(inputRef.current) {
+        if (inputRef.current) {
             input.current.focus();
         }
 
         let inputValue = inputRef.current?.value.trim();
 
-        if (dateInputRef.current){
-            dateInput.current.focus()
+        if (dateInputRef.current) {
+            dateInput.current.focus();
         }
 
         let dateInputValue = dateInputRef.current?.value.trim();
-
-        let combined = inputValue + " " +dateInputValue;
+        let combined = inputValue + " " + dateInputValue;
 
         if (inputValue !== "" && dateInputValue !== "") {
-            // append in react
-            setElement(prevState => [...prevState, combined])
-            objectCheckbox.stateArray.push(0)
+            // Append the new item and initialize the ref for the new checkbox
+            setElement((prevState) => [...prevState, combined]);
+            setCheckedState((prevState) => [...prevState, false]); // Initialize with unchecked state
 
+            objectCheckbox.stateArray.push(0); // Initialize checkbox state
+
+            // Ensure refs are created for new checkboxes
+            initializeRefs(objectCheckbox.stateArray.length);
         }
 
-        if(input.current) {
+        if (input.current) {
             input.current.value = "";
         }
 
-        if(dateInput.current){
+        if (dateInput.current) {
             dateInput.current.value = "";
         }
 
-
-
+        renderTasks(objectCheckbox.stateArray);
     }
 
     function remove(index) {
-        if(inputRef.current && element.length > 0) {
-            // the remove the current element
+        if (inputRef.current && element.length > 0) {
+            // Remove the current element and update the checkbox states
             setElement(element.filter((_, i) => i !== index));
-            if(element.length > 0) {
-                for (let i = 0; i < element.length; i++) {
-                    if(i === 0){
-                        document.getElementById(i.toString()).checked = objectCheckbox.unchecked;
-                        objectCheckbox.stateArray.splice(i,1)
-                        console.log(JSON.stringify(objectCheckbox))
-                    }
-                    if (i === 1){
-                        document.getElementById(i.toString()).checked = objectCheckbox.checked;
-                        objectCheckbox.stateArray.splice(i,1)
-                        console.log(JSON.stringify(objectCheckbox))
-                    }
-                }
-            }
-        }else{
-            alert("There are no elements in the list")
+            setCheckedState(checkedState.filter((_, i) => i !== index));
+
+            // Update the state array and checkboxes refs
+            objectCheckbox.stateArray.splice(index, 1);
+            checkboxes.current.splice(index, 1);
+
+            renderTasks(objectCheckbox.stateArray);
+        } else {
+            alert("There are no elements in the list");
         }
     }
 
-    return (<div className={"containerForList"}>
+    const handleClickCheck = (index) => {
+        // Toggle the checked state for the checkbox at the current index
+        const updatedCheckedState = checkedState.map((item, i) =>
+            i === index ? !item : item
+        );
 
-        <button onClick={add} id={"add"}>add</button>
-        <ul>The list
-            {element.map((item,index) => <li key={index}>{item}<input type="checkbox" id={index} ref={checkbox}/>
-                <button onClick={()=>remove(index)} className={"text-white bg-red-500 hover:bg-red-600 rounded-full p-2 focus:outline-none"} id={"rem"}>x</button>
-            </li>)}
-        </ul>
+        setCheckedState(updatedCheckedState); // Update the checked state in React state
 
-    </div>)
+        // Update the checkbox state array
+        objectCheckbox.stateArray[index] = updatedCheckedState[index] ? 1 : 0;
 
-}
+        renderTasks(objectCheckbox.stateArray); // Update the state of the checkboxes
+    };
 
-export default List
+    return (
+        <div className={"containerForList"}>
+            <button onClick={add} id={"add"}>
+                Add
+            </button>
+            <ul>
+                The list
+                {element.map((item, index) => (
+                    <li key={index}>
+                        {item}
+                        {/* Controlled checkbox */}
+                        <input
+                            type="checkbox"
+                            id={`checkbox-${index}`}
+                            ref={checkboxes.current[index]} // Assign the ref for each checkbox
+                            checked={checkedState[index]} // Controlled by the checkedState
+                            onChange={() => handleClickCheck(index)} // Handle change by updating the state
+                        />
+                        <button
+                            onClick={() => remove(index)}
+                            className={
+                                "text-white bg-red-500 hover:bg-red-600 rounded-full p-2 focus:outline-none"
+                            }
+                            id={"rem"}
+                        >
+                            x
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default List;
