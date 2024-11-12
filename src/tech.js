@@ -1,4 +1,4 @@
-import React from "react";
+import React, {createRef} from "react";
 import {useState} from "react";
 /*function tech(props) {
 
@@ -60,6 +60,14 @@ const checkPrime = (n) => {
     return true;
 };*/
 
+let checkbox = createRef(null)
+
+let objectCheckbox = {
+    unchecked: false,
+    checked: true,
+    stateArray:[]
+}
+
 const List = ({inputRef,dateInputRef}) => {
 
     const [element, setElement] = useState([]);
@@ -84,6 +92,7 @@ const List = ({inputRef,dateInputRef}) => {
         if (inputValue !== "" && dateInputValue !== "") {
             // append in react
             setElement(prevState => [...prevState, combined])
+            objectCheckbox.stateArray.push(0)
 
         }
 
@@ -95,12 +104,28 @@ const List = ({inputRef,dateInputRef}) => {
             dateInput.current.value = "";
         }
 
+
+
     }
 
     function remove(index) {
         if(inputRef.current && element.length > 0) {
             // the remove the current element
             setElement(element.filter((_, i) => i !== index));
+            if(element.length > 0) {
+                for (let i = 0; i < element.length; i++) {
+                    if(i === 0){
+                        document.getElementById(i.toString()).checked = objectCheckbox.unchecked;
+                        objectCheckbox.stateArray.splice(i,1)
+                        console.log(JSON.stringify(objectCheckbox))
+                    }
+                    if (i === 1){
+                        document.getElementById(i.toString()).checked = objectCheckbox.checked;
+                        objectCheckbox.stateArray.splice(i,1)
+                        console.log(JSON.stringify(objectCheckbox))
+                    }
+                }
+            }
         }else{
             alert("There are no elements in the list")
         }
@@ -110,7 +135,7 @@ const List = ({inputRef,dateInputRef}) => {
 
         <button onClick={add} id={"add"}>add</button>
         <ul>The list
-            {element.map((item,index) => <li key={index}>{item}<input type="checkbox"/>
+            {element.map((item,index) => <li key={index}>{item}<input type="checkbox" id={index} ref={checkbox}/>
                 <button onClick={()=>remove(index)} className={"text-white bg-red-500 hover:bg-red-600 rounded-full p-2 focus:outline-none"} id={"rem"}>x</button>
             </li>)}
         </ul>
