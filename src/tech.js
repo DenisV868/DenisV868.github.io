@@ -3,7 +3,8 @@ import React, { useRef, useState } from "react";
 let objectCheckbox = {
     unchecked: false,
     checked: true,
-    stateArray: []
+    stateArray: [],
+    highlightArray: []
 };
 
 const renderTasks = (list) => {
@@ -13,6 +14,7 @@ const renderTasks = (list) => {
 const List = ({ inputRef, dateInputRef }) => {
     const [element, setElement] = useState([]);
     const [checkedState, setCheckedState] = useState([]); // State to track the checked status of each checkbox
+    const [highlightedState, setHighlightedState] = useState([]);
 
     // Create refs for checkboxes as an empty array initially
     const checkboxes = useRef([]);
@@ -48,6 +50,7 @@ const List = ({ inputRef, dateInputRef }) => {
             setCheckedState((prevState) => [...prevState, false]); // Initialize with unchecked state
 
             objectCheckbox.stateArray.push(0); // Initialize checkbox state
+            objectCheckbox.highlightArray.push("white")
 
             // Ensure refs are created for new checkboxes
             initializeRefs(objectCheckbox.stateArray.length);
@@ -88,11 +91,25 @@ const List = ({ inputRef, dateInputRef }) => {
 
         setCheckedState(updatedCheckedState); // Update the checked state in React state
 
+
         // Update the checkbox state array
         objectCheckbox.stateArray[index] = updatedCheckedState[index] ? 1 : 0;
 
         renderTasks(objectCheckbox.stateArray); // Update the state of the checkboxes
     };
+
+    const handleHiglight = (index) => {
+
+        const updatedHighlightedState = highlightedState.map((item, i) => i===index ?
+            !item : item);
+
+        setHighlightedState(updatedHighlightedState)
+
+        objectCheckbox.highlightArray[index] = updatedHighlightedState[index] ? "green":"white"
+
+        renderTasks(objectCheckbox.highlightArray)
+
+    }
 
     return (
         <div className={"containerForList"}>
@@ -102,7 +119,7 @@ const List = ({ inputRef, dateInputRef }) => {
             <ul>
                 The list
                 {element.map((item, index) => (
-                    <li key={index}>
+                    <li key={index} style={{backgroundColor:objectCheckbox.highlightArray[index]}}>
                         {item}
                         {/* Controlled checkbox */}
                         <input
