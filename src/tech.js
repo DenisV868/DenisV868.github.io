@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {useEffect, useRef, useState} from "react"
 
 let objectList = {
     unchecked: false,
@@ -22,6 +22,25 @@ const List = ({ inputRef, dateInputRef }) => {
 
     const input = inputRef;
     const dateInput = dateInputRef;
+
+    useEffect(() => {
+        const savedObjectList = localStorage.getItem("objectList");
+        if (savedObjectList) {
+            const parsedObjectList = JSON.parse(savedObjectList);
+            objectList = parsedObjectList; // Update objectList
+
+            setElement(parsedObjectList.liArray);
+            setCheckedState(parsedObjectList.stateArray.map(item => item === 1)); // Convert 1/0 to true/false
+            setHighlightedState(parsedObjectList.highlightArray);
+
+            // Ensure refs are created for the checkboxes
+            initializeRefs(parsedObjectList.liArray.length);
+        }
+    }, []);
+
+    const saveToLocalStorage = () => {
+        localStorage.setItem("objectList", JSON.stringify(objectList));
+    };
 
     // Ensure we initialize empty refs for each checkbox in the list
     const initializeRefs = (length) => {
@@ -57,6 +76,8 @@ const List = ({ inputRef, dateInputRef }) => {
             // Ensure refs are created for new checkboxes
             initializeRefs(objectList.stateArray.length);
             initializeRefs(objectList.liArray)
+
+            saveToLocalStorage()
         }
 
         if (input.current) {
@@ -87,6 +108,7 @@ const List = ({ inputRef, dateInputRef }) => {
             checkboxes.current.splice(index, 1);
             objectList.liArray.splice(index, 1);
 
+            saveToLocalStorage()
             renderTasks(JSON.stringify(objectList, null, 2));
         } else {
             alert("There are no elements in the list");
