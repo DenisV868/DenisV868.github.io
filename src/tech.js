@@ -4,7 +4,8 @@ let objectCheckbox = {
     unchecked: false,
     checked: true,
     stateArray: [],
-    highlightArray: []
+    highlightArray: [],
+    liArray:[]
 };
 
 const renderTasks = (list) => {
@@ -42,18 +43,20 @@ const List = ({ inputRef, dateInputRef }) => {
         }
 
         let dateInputValue = dateInputRef.current?.value.trim();
-        let combined = inputValue + " " + dateInputValue;
 
         if (inputValue !== "" && dateInputValue !== "") {
+            let combined = inputValue + " " + dateInputValue;
             // Append the new item and initialize the ref for the new checkbox
             setElement((prevState) => [...prevState, combined]);
             setCheckedState((prevState) => [...prevState, false]); // Initialize with unchecked state
 
             objectCheckbox.stateArray.push(0); // Initialize checkbox state
             objectCheckbox.highlightArray.push("white")
+            objectCheckbox.liArray.push(combined)
 
             // Ensure refs are created for new checkboxes
             initializeRefs(objectCheckbox.stateArray.length);
+            initializeRefs(objectCheckbox.liArray)
         }
 
         if (input.current) {
@@ -64,7 +67,7 @@ const List = ({ inputRef, dateInputRef }) => {
             dateInput.current.value = "";
         }
 
-        renderTasks(objectCheckbox.stateArray);
+        renderTasks(JSON.stringify(objectCheckbox, null, 2));
     }
 
     function remove(index) {
@@ -75,9 +78,16 @@ const List = ({ inputRef, dateInputRef }) => {
 
             // Update the state array and checkboxes refs
             objectCheckbox.stateArray.splice(index, 1);
+            if(objectCheckbox.highlightArray.length > 1) {
+                objectCheckbox.highlightArray.splice(index, 1)
+            }
+            if (objectCheckbox.highlightArray.length === 1) {
+                objectCheckbox.highlightArray.splice(index,1,"white")
+            }
             checkboxes.current.splice(index, 1);
+            objectCheckbox.liArray.splice(index, 1);
 
-            renderTasks(objectCheckbox.stateArray);
+            renderTasks(JSON.stringify(objectCheckbox, null, 2));
         } else {
             alert("There are no elements in the list");
         }
@@ -89,32 +99,30 @@ const List = ({ inputRef, dateInputRef }) => {
             i === index ? !item : item
         );
 
-        setCheckedState(updatedCheckedState); // Update the checked state in React state
+        const updatedHighlightedState = highlightedState.map((item, i) => i===index ?
+            "white":"#28a745");
 
+        setCheckedState(updatedCheckedState); // Update the checked state in React state
+        setHighlightedState(updatedHighlightedState)
 
         // Update the checkbox state array
         objectCheckbox.stateArray[index] = updatedCheckedState[index] ? 1 : 0;
+        if (objectCheckbox.stateArray[index] === 0){
+            objectCheckbox.highlightArray.splice(index,1,"white")
+        }
+        if (objectCheckbox.stateArray[index] === 1){
+            objectCheckbox.highlightArray.splice(index,1,"#28a745")
+        }
 
         renderTasks(objectCheckbox.stateArray); // Update the state of the checkboxes
     };
 
-    const handleHiglight = (index) => {
 
-        const updatedHighlightedState = highlightedState.map((item, i) => i===index ?
-            !item : item);
-
-        setHighlightedState(updatedHighlightedState)
-
-        objectCheckbox.highlightArray[index] = updatedHighlightedState[index] ? "green":"white"
-
-        renderTasks(objectCheckbox.highlightArray)
-
-    }
 
     return (
         <div className={"containerForList"}>
-            <button onClick={add} id={"add"}>
-                Add
+            <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>Add List
+                +
             </button>
             <ul>
                 The list
