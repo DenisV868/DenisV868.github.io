@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-let objectCheckbox = {
+let objectList = {
     unchecked: false,
     checked: true,
     stateArray: [],
@@ -50,13 +50,13 @@ const List = ({ inputRef, dateInputRef }) => {
             setElement((prevState) => [...prevState, combined]);
             setCheckedState((prevState) => [...prevState, false]); // Initialize with unchecked state
 
-            objectCheckbox.stateArray.push(0); // Initialize checkbox state
-            objectCheckbox.highlightArray.push("white")
-            objectCheckbox.liArray.push(combined)
+            objectList.stateArray.push(0); // Initialize checkbox state
+            objectList.highlightArray.push("white")
+            objectList.liArray.push(combined)
 
             // Ensure refs are created for new checkboxes
-            initializeRefs(objectCheckbox.stateArray.length);
-            initializeRefs(objectCheckbox.liArray)
+            initializeRefs(objectList.stateArray.length);
+            initializeRefs(objectList.liArray)
         }
 
         if (input.current) {
@@ -67,7 +67,7 @@ const List = ({ inputRef, dateInputRef }) => {
             dateInput.current.value = "";
         }
 
-        renderTasks(JSON.stringify(objectCheckbox, null, 2));
+        renderTasks(JSON.stringify(objectList, null, 2));
     }
 
     function remove(index) {
@@ -77,17 +77,17 @@ const List = ({ inputRef, dateInputRef }) => {
             setCheckedState(checkedState.filter((_, i) => i !== index));
 
             // Update the state array and checkboxes refs
-            objectCheckbox.stateArray.splice(index, 1);
-            if(objectCheckbox.highlightArray.length > 1) {
-                objectCheckbox.highlightArray.splice(index, 1)
+            objectList.stateArray.splice(index, 1);
+            if(objectList.highlightArray.length > 1) {
+                objectList.highlightArray.splice(index, 1)
             }
-            if (objectCheckbox.highlightArray.length === 1) {
-                objectCheckbox.highlightArray.splice(index,1,"white")
+            if (objectList.highlightArray.length === 1) {
+                objectList.highlightArray.splice(index,1,"white")
             }
             checkboxes.current.splice(index, 1);
-            objectCheckbox.liArray.splice(index, 1);
+            objectList.liArray.splice(index, 1);
 
-            renderTasks(JSON.stringify(objectCheckbox, null, 2));
+            renderTasks(JSON.stringify(objectList, null, 2));
         } else {
             alert("There are no elements in the list");
         }
@@ -106,28 +106,28 @@ const List = ({ inputRef, dateInputRef }) => {
         setHighlightedState(updatedHighlightedState)
 
         // Update the checkbox state array
-        objectCheckbox.stateArray[index] = updatedCheckedState[index] ? 1 : 0;
-        if (objectCheckbox.stateArray[index] === 0){
-            objectCheckbox.highlightArray.splice(index,1,"white")
+        objectList.stateArray[index] = updatedCheckedState[index] ? 1 : 0;
+        if (objectList.stateArray[index] === 0){
+            objectList.highlightArray.splice(index,1,"white")
         }
-        if (objectCheckbox.stateArray[index] === 1){
-            objectCheckbox.highlightArray.splice(index,1,"#28a745")
+        if (objectList.stateArray[index] === 1){
+            objectList.highlightArray.splice(index,1,"#28a745")
         }
 
-        renderTasks(objectCheckbox.stateArray); // Update the state of the checkboxes
+        renderTasks(objectList.stateArray); // Update the state of the checkboxes
     };
 
 
 
     return (
         <div className={"containerForList"}>
-            <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>Add List
+            <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
                 +
             </button>
             <ul>
                 The list
                 {element.map((item, index) => (
-                    <li key={index} style={{backgroundColor:objectCheckbox.highlightArray[index]}}>
+                    <li key={index} style={{backgroundColor:objectList.highlightArray[index]}}>
                         {item}
                         {/* Controlled checkbox */}
                         <input
