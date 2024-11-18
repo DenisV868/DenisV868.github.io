@@ -13,10 +13,9 @@ const renderTasks = (list) => {
 };
 
 const List = ({ inputRef, dateInputRef }) => {
-    const [element, setElement] = useState([]);
+    let [element, setElement] = useState([]);
     const [checkedState, setCheckedState] = useState([]); // State to track the checked status of each checkbox
     const [highlightedState, setHighlightedState] = useState([]);
-
     // Create refs for checkboxes as an empty array initially
     const checkboxes = useRef([]);
 
@@ -65,13 +64,15 @@ const List = ({ inputRef, dateInputRef }) => {
 
         if (inputValue !== "" && dateInputValue !== "") {
             let combined = inputValue + " " + dateInputValue;
-            // Append the new item and initialize the ref for the new checkbox
-            setElement((prevState) => [...prevState, combined]);
-            setCheckedState((prevState) => [...prevState, false]); // Initialize with unchecked state
+            //Append the new item and initialize the ref for the new checkbox
+
+            //setElement((prevState)=>[...prevState,combined])
 
             objectList.stateArray.push(0); // Initialize checkbox state
             objectList.highlightArray.push("white")
             objectList.liArray.push(combined)
+            setElement(objectList.liArray.map((item) => (item)));
+            setCheckedState(objectList.stateArray); // Initialize with unchecked state
 
             // Ensure refs are created for new checkboxes
             initializeRefs(objectList.stateArray.length);
@@ -137,6 +138,7 @@ const List = ({ inputRef, dateInputRef }) => {
         }
 
         renderTasks(objectList.stateArray); // Update the state of the checkboxes
+        saveToLocalStorage()
     };
 
 
