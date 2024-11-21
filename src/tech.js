@@ -148,6 +148,7 @@ const List = ({ inputRef, dateInputRef }) => {
             <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
                 +
             </button>
+            <button id={"remALL"}>remove all</button>
             <ul>
                 The list
                 {element.map((item, index) => (

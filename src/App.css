@@ -97,5 +97,10 @@ p{
   background-color: navy;
   color: white;
 }
+#remALL{
+  position: relative;
+  bottom: 30px;
+  left: 400px;
+}
 
 
