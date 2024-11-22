@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from "react"
+import alertBox from "../alert";
 
 let objectList = {
     unchecked: false,
@@ -116,6 +117,17 @@ const List = ({ inputRef, dateInputRef }) => {
         }
     }
 
+    /*function removeAll(){
+        objectList.stateArray = [];
+        objectList.highlightArray = [];
+        objectList.liArray = [];
+        setElement(objectList.liArray.map((item)=>(item)))
+        setCheckedState(objectList.stateArray)
+        setHighlightedState([])
+        saveToLocalStorage()
+        renderTasks(JSON.stringify(objectList, null, 2));
+    }*/
+
     const handleClickCheck = (index) => {
         // Toggle the checked state for the checkbox at the current index
         const updatedCheckedState = checkedState.map((item, i) =>
@@ -148,7 +160,7 @@ const List = ({ inputRef, dateInputRef }) => {
             <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
                 +
             </button>
-            <button id={"remALL"}>remove all</button>
+            <button id={"remALL"} onClick={alertBox}>remove all</button>
             <ul>
                 The list
                 {element.map((item, index) => (
