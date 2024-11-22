@@ -116,7 +116,35 @@ p{
 }
 
 div.alert-box{
-  background-color: white;
-  width: 100px;
-  height: 100px;
+  position: fixed; /* So it floats on top */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f8d7da; /* Light red color for alert */
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  min-width: 300px;
+}
+
+button.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+div > ul{
+  list-style: none;
+  padding: 0;
+}
+
+div > ul > li{
+  margin: 8px 0;
 }

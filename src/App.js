@@ -20,7 +20,7 @@ let techs = {
     "js": js,
     "react": react,
 }*/
-import List from "./tech";
+import List from "./Tech";
 
 const date = new Date();
 const year = date.getFullYear();

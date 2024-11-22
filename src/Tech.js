@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react"
-import alertBox from "../alert";
+import AlertBox from "./Alert";
 
 let objectList = {
     unchecked: false,
@@ -160,7 +160,7 @@ const List = ({ inputRef, dateInputRef }) => {
             <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
                 +
             </button>
-            <button id={"remALL"} onClick={alertBox}>remove all</button>
+            <button id={"remALL"} onClick={AlertBox}>remove all</button>
             <ul>
                 The list
                 {element.map((item, index) => (
