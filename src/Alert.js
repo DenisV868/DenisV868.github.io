@@ -1,23 +1,11 @@
-import {useState} from "react";
-
-
-const AlertBox = () => {
-
-    const [alert,showAlert] = useState(true)
-
-    const closeAlert = () => {
-
-        showAlert(false)
-
-    }
-
-    if(!alert)return null
+const AlertBox = ({showAlert,closeAlert,removeUnchecked,removeChecked}) => {
+    if(!showAlert)return null
 
     return (<div className={"alert-box"}>
         <button className={"close-btn"} onClick={closeAlert}>X</button>
         <ul>
-            <li>Checked</li>
-            <li>Un Checked</li>
+            <li onClick={removeChecked}>Checked</li>
+            <li onClick={removeUnchecked}>Un Checked</li>
         </ul>
         </div>);
 

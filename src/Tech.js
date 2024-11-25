@@ -4,7 +4,7 @@ import AlertBox from "./Alert";
 let objectList = {
     unchecked: false,
     checked: true,
-    stateArray: [],
+    stateArray: [],//initial state array
     highlightArray: [],
     liArray:[]
 };
@@ -13,11 +13,21 @@ const renderTasks = (list) => {
     console.log("Task list state:", list);
 };
 
+function reming(i, setElement, setCheckedState, saveToLocalStorage) {
+    objectList.liArray.splice(i, 1);
+    objectList.stateArray.splice(i, 1);
+    objectList.highlightArray.splice(i, 1);
+    setElement(objectList.liArray.map((item) => (item)))
+    setCheckedState(objectList.stateArray)
+    saveToLocalStorage()
+    renderTasks(JSON.stringify(objectList, null, 2));
+}
+
 const List = ({ inputRef, dateInputRef }) => {
     let [element, setElement] = useState([]);
     const [checkedState, setCheckedState] = useState([]); // State to track the checked status of each checkbox
     const [highlightedState, setHighlightedState] = useState([]);
-    // Create refs for checkboxes as an empty array initially
+    const [showAlert, setShowAlert] = useState(false);
     const checkboxes = useRef([]);
 
     const input = inputRef;
@@ -128,6 +138,9 @@ const List = ({ inputRef, dateInputRef }) => {
         renderTasks(JSON.stringify(objectList, null, 2));
     }*/
 
+    const handleShowAlert = () => setShowAlert(true);
+    const closeAlert = () => setShowAlert(false);
+
     const handleClickCheck = (index) => {
         // Toggle the checked state for the checkbox at the current index
         const updatedCheckedState = checkedState.map((item, i) =>
@@ -153,14 +166,40 @@ const List = ({ inputRef, dateInputRef }) => {
         saveToLocalStorage()
     };
 
+    const removeUnchecked = () => {
 
+        for (let i = objectList.stateArray.length-1; i >= 0; i--) {
+            if (objectList.stateArray[i] === 0) {
+                reming(i, setElement, setCheckedState, saveToLocalStorage);
+            }else{
+                alert("There are no unChecked elements in the list");
+                break
+            }
+        }
+
+
+    }
+
+    const removeChecked = () => {
+
+        for (let i = objectList.stateArray.length-1; i >= 0; i--) {
+            if (objectList.stateArray[i] === 1) {
+                reming(i, setElement, setCheckedState, saveToLocalStorage);
+            }
+            else{
+                alert("There are no Checked elements in the list")
+                break
+            }
+        }
+
+    }
 
     return (
         <div className={"containerForList"}>
             <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
                 +
             </button>
-            <button id={"remALL"} onClick={AlertBox}>remove all</button>
+            <button id={"remALL"} onClick={handleShowAlert}>remove all</button>
             <ul>
                 The list
                 {element.map((item, index) => (
@@ -186,6 +225,7 @@ const List = ({ inputRef, dateInputRef }) => {
                     </li>
                 ))}
             </ul>
+            <AlertBox showAlert={showAlert} closeAlert={closeAlert} removeUnchecked={removeUnchecked} removeChecked={removeChecked}/>
         </div>
     );
 };
