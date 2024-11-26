@@ -13,7 +13,7 @@ const renderTasks = (list) => {
     console.log("Task list state:", list);
 };
 
-function reming(i, setElement, setCheckedState, saveToLocalStorage) {
+function rm(i, setElement, setCheckedState, saveToLocalStorage) {
     objectList.liArray.splice(i, 1);
     objectList.stateArray.splice(i, 1);
     objectList.highlightArray.splice(i, 1);
@@ -170,7 +170,7 @@ const List = ({ inputRef, dateInputRef }) => {
 
         for (let i = objectList.stateArray.length-1; i >= 0; i--) {
             if (objectList.stateArray[i] === 0) {
-                reming(i, setElement, setCheckedState, saveToLocalStorage);
+                rm(i, setElement, setCheckedState, saveToLocalStorage);
             }else{
                 alert("There are no unChecked elements in the list");
                 break
@@ -184,7 +184,7 @@ const List = ({ inputRef, dateInputRef }) => {
 
         for (let i = objectList.stateArray.length-1; i >= 0; i--) {
             if (objectList.stateArray[i] === 1) {
-                reming(i, setElement, setCheckedState, saveToLocalStorage);
+                rm(i, setElement, setCheckedState, saveToLocalStorage);
             }
             else{
                 alert("There are no Checked elements in the list")
@@ -199,7 +199,9 @@ const List = ({ inputRef, dateInputRef }) => {
             <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
                 +
             </button>
-            <button id={"remALL"} onClick={handleShowAlert}>remove all</button>
+            <button id={"remALL"} onClick={handleShowAlert} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
+                X
+            </button>
             <ul>
                 The list
                 {element.map((item, index) => (
