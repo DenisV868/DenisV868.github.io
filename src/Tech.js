@@ -6,7 +6,8 @@ let objectList = {
     checked: true,
     stateArray: [],//initial state array
     highlightArray: [],
-    liArray:[]
+    liArray:[],
+    dateArr:[]
 };
 
 const renderTasks = (list) => {
@@ -76,7 +77,6 @@ const List = ({ inputRef, dateInputRef }) => {
         if (inputValue !== "" && dateInputValue !== "") {
             let combined = inputValue + " " + dateInputValue;
             //Append the new item and initialize the ref for the new checkbox
-
             //setElement((prevState)=>[...prevState,combined])
 
             objectList.stateArray.push(0); // Initialize checkbox state
@@ -84,7 +84,6 @@ const List = ({ inputRef, dateInputRef }) => {
             objectList.liArray.push(combined)
             setElement(objectList.liArray.map((item) => (item)));
             setCheckedState(objectList.stateArray); // Initialize with unchecked state
-
             // Ensure refs are created for new checkboxes
             initializeRefs(objectList.stateArray.length);
             initializeRefs(objectList.liArray)
@@ -127,7 +126,7 @@ const List = ({ inputRef, dateInputRef }) => {
         }
     }
 
-    /*function removeAll(){
+    const removeAll = () => {
         objectList.stateArray = [];
         objectList.highlightArray = [];
         objectList.liArray = [];
@@ -136,7 +135,7 @@ const List = ({ inputRef, dateInputRef }) => {
         setHighlightedState([])
         saveToLocalStorage()
         renderTasks(JSON.stringify(objectList, null, 2));
-    }*/
+    }
 
     const handleShowAlert = () => setShowAlert(true);
     const closeAlert = () => setShowAlert(false);
@@ -148,7 +147,7 @@ const List = ({ inputRef, dateInputRef }) => {
         );
 
         const updatedHighlightedState = highlightedState.map((item, i) => i===index ?
-            "white":"#28a745");
+            "white":"#abf191");
 
         setCheckedState(updatedCheckedState); // Update the checked state in React state
         setHighlightedState(updatedHighlightedState)
@@ -199,8 +198,8 @@ const List = ({ inputRef, dateInputRef }) => {
             <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
                 +
             </button>
-            <button id={"remALL"} onClick={handleShowAlert} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
-                X
+            <button id={"remALL"} onClick={handleShowAlert} style={{borderRadius: "100%", width:"40px", textAlign: "center", height:"40px"}}>
+                ×
             </button>
             <ul>
                 The list
@@ -227,7 +226,7 @@ const List = ({ inputRef, dateInputRef }) => {
                     </li>
                 ))}
             </ul>
-            <AlertBox showAlert={showAlert} closeAlert={closeAlert} removeUnchecked={removeUnchecked} removeChecked={removeChecked}/>
+            <AlertBox showAlert={showAlert} closeAlert={closeAlert} removeUnchecked={removeUnchecked} removeChecked={removeChecked} rmAll={removeAll}/>
         </div>
     );
 };

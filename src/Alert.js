@@ -1,4 +1,4 @@
-const AlertBox = ({showAlert,closeAlert,removeUnchecked,removeChecked}) => {
+const AlertBox = ({showAlert,closeAlert,removeUnchecked,removeChecked,rmAll}) => {
     if(!showAlert)return null
 
     return (<div className={"alert-box"}>
@@ -6,6 +6,7 @@ const AlertBox = ({showAlert,closeAlert,removeUnchecked,removeChecked}) => {
         <ul>
             <li onClick={removeChecked}>Checked</li>
             <li onClick={removeUnchecked}>Un Checked</li>
+            <li onClick={rmAll}>Remove All</li>
         </ul>
         </div>);
 
