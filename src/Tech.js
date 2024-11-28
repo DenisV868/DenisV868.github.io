@@ -193,6 +193,46 @@ const List = ({ inputRef, dateInputRef }) => {
 
     }
 
+    const handleDragStart = (e, index) => {
+        e.dataTransfer.setData("index", index); // Store the index of the dragged item
+    };
+
+    const handleDrop = (e, targetIndex) => {
+        const sourceIndex = e.dataTransfer.getData("index");
+
+        if (sourceIndex !== targetIndex) {
+            // Reorder the arrays in objectList
+            const updatedLiArray = [...objectList.liArray];
+            const updatedStateArray = [...objectList.stateArray];
+            const updatedHighlightArray = [...objectList.highlightArray];
+
+            const [removedItem] = updatedLiArray.splice(sourceIndex, 1);
+            updatedLiArray.splice(targetIndex, 0, removedItem);
+
+            const [removedState] = updatedStateArray.splice(sourceIndex, 1);
+            updatedStateArray.splice(targetIndex, 0, removedState);
+
+            const [removedHighlight] = updatedHighlightArray.splice(sourceIndex, 1);
+            updatedHighlightArray.splice(targetIndex, 0, removedHighlight);
+
+            objectList.liArray = updatedLiArray;
+            objectList.stateArray = updatedStateArray;
+            objectList.highlightArray = updatedHighlightArray;
+
+            setElement(updatedLiArray);
+            setCheckedState(updatedStateArray);
+            setHighlightedState(updatedHighlightArray);
+
+            saveToLocalStorage();
+            renderTasks(JSON.stringify(objectList, null, 2));
+        }
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault(); // Prevent the default behavior to allow drop
+    };
+
+
     return (
         <div className={"containerForList"}>
             <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
@@ -204,7 +244,11 @@ const List = ({ inputRef, dateInputRef }) => {
             <ul>
                 The list
                 {element.map((item, index) => (
-                    <li key={index} style={{backgroundColor:objectList.highlightArray[index]}}>
+                    <li key={index} style={{backgroundColor:objectList.highlightArray[index]}} draggable
+                        onDragStart={(e) => handleDragStart(e, index)}
+                        onDrop={(e) => handleDrop(e, index)}
+                        onDragOver={handleDragOver}
+                    >
                         {item}
                         {/* Controlled checkbox */}
                         <input
