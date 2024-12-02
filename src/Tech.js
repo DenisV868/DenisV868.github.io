@@ -1,4 +1,4 @@
-import React, {createRef, useEffect, useRef, useState} from "react"
+import React, { useEffect, useRef, useState} from "react"
 import AlertBox from "./Alert";
 import InputEdit from "./InputEdit";
 
@@ -38,7 +38,9 @@ const List = ({ inputRef, dateInputRef }) => {
     const input = inputRef;
     const dateInput = dateInputRef;
 
-    let inputAL = createRef()
+    let inputAL = useRef([]);
+
+    let nexus = 0;
 
     useEffect(() => {
         const savedObjectList = localStorage.getItem("objectList");
@@ -64,6 +66,9 @@ const List = ({ inputRef, dateInputRef }) => {
         // If checkboxes.current has fewer refs than needed, push new empty refs
         while (checkboxes.current.length < length) {
             checkboxes.current.push(React.createRef());
+        }
+        while (inputAL.current.length < length) {
+            inputAL.current.push(React.createRef());
         }
     };
 
@@ -268,23 +273,23 @@ const List = ({ inputRef, dateInputRef }) => {
             </button>
             <ul>
                 The list
-                {element.map((item, index) => (
-                    <li key={index} style={{backgroundColor: objectList.highlightArray[index]}} draggable
-                        onDragStart={(e) => handleDragStart(e, index)}
-                        onDrop={(e) => handleDrop(e, index)}
+                {element.map((item, nexus) => (
+                    <li key={nexus} style={{backgroundColor: objectList.highlightArray[nexus]}} draggable
+                        onDragStart={(e) => handleDragStart(e, nexus)}
+                        onDrop={(e) => handleDrop(e, nexus)}
                         onDragOver={handleDragOver}
                     >
                         {item}
                         {/* Controlled checkbox */}
                         <input
                             type="checkbox"
-                            id={`checkbox-${index}`}
-                            ref={checkboxes.current[index]} // Assign the ref for each checkbox
-                            checked={checkedState[index]} // Controlled by the checkedState
-                            onChange={() => handleClickCheck(index)} // Handle change by updating the state
+                            id={`checkbox-${nexus}`}
+                            ref={checkboxes.current[nexus]} // Assign the ref for each checkbox
+                            checked={checkedState[nexus]} // Controlled by the checkedState
+                            onChange={() => handleClickCheck(nexus)} // Handle change by updating the state
                         />
                         <button
-                            onClick={() => remove(index)}
+                            onClick={() => remove(nexus)}
                             className={
                                 "text-white bg-red-500 hover:bg-red-600 rounded-full p-2 focus:outline-none"
                             }
@@ -292,14 +297,14 @@ const List = ({ inputRef, dateInputRef }) => {
                         >
                             x
                         </button>
-                        <button id={"edit"} onClick={()=>showAlertIF(index)} style={{marginLeft:"10px"}}>
+                        <button id={"edit"} onClick={()=>showAlertIF(nexus)} style={{marginLeft:"10px"}}>
                             E
                         </button>
                     </li>
                 ))}
             </ul>
             <AlertBox showAlert={showAlert} closeAlert={closeAlert} removeUnchecked={removeUnchecked} removeChecked={removeChecked} rmAll={removeAll}/>
-            <InputEdit showAlert={showAlertI} closeAlert={closeAlertIF} ref={inputAL} />
+            <InputEdit showAlert={showAlertI} closeAlert={closeAlertIF} ref={inputAL.current[nexus]} val={objectList.liArray[nexus]} />
         </div>
     );
 };
