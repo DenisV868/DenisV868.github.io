@@ -10,6 +10,8 @@ let objectList = {
     dateArr:[]
 };
 
+
+
 const renderTasks = (list) => {
     console.log("Task list state:", list);
 };
@@ -101,6 +103,23 @@ const List = ({ inputRef, dateInputRef }) => {
 
         renderTasks(JSON.stringify(objectList, null, 2));
     }
+
+    useEffect(() => {
+        // Add keydown listener for "Enter" key
+        const handleKeyDown = (event) => {
+            if (event.key === "Enter") {
+                add(); // Call the add function when "Enter" is pressed
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
+
 
     function remove(index) {
         if (inputRef.current && element.length > 0) {
