@@ -1,13 +1,12 @@
 import React from "react";
 
+const InputEdit = ({textEdit, closeAlert,showAlert,val, InputRef}) => {
 
-const InputEdit = ({textEdit, closeAlert}) => {
+    if(!showAlert)return null;
 
-    const InputRef = React.createRef();
-
-    return(<div>
-        <button className={"close-btn"} onClick={closeAlert}>X</button>
-        <input type={"text"} placeholder={textEdit} ref={InputRef}/><button>edit</button>
+    return(<div className={"input-edit"}>
+        <button className={"close-btn2"} onClick={closeAlert}>X</button>
+        <input type={"text"} placeholder={textEdit} ref={InputRef} value={val}/><button>edit</button>
     </div>)
 
 }

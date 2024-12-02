@@ -1,5 +1,6 @@
-import React, {useEffect, useRef, useState} from "react"
+import React, {createRef, useEffect, useRef, useState} from "react"
 import AlertBox from "./Alert";
+import InputEdit from "./InputEdit";
 
 let objectList = {
     unchecked: false,
@@ -31,10 +32,13 @@ const List = ({ inputRef, dateInputRef }) => {
     const [checkedState, setCheckedState] = useState([]); // State to track the checked status of each checkbox
     const [highlightedState, setHighlightedState] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
+    const [showAlertI, setShowAlertI] = useState(false);
     const checkboxes = useRef([]);
 
     const input = inputRef;
     const dateInput = dateInputRef;
+
+    let inputAL = createRef()
 
     useEffect(() => {
         const savedObjectList = localStorage.getItem("objectList");
@@ -251,6 +255,8 @@ const List = ({ inputRef, dateInputRef }) => {
         e.preventDefault(); // Prevent the default behavior to allow drop
     };
 
+    const showAlertIF = (index) => {setShowAlertI(true)}
+    const closeAlertIF = () => {setShowAlertI(false)}
 
     return (
         <div className={"containerForList"}>
@@ -263,7 +269,7 @@ const List = ({ inputRef, dateInputRef }) => {
             <ul>
                 The list
                 {element.map((item, index) => (
-                    <li key={index} style={{backgroundColor:objectList.highlightArray[index]}} draggable
+                    <li key={index} style={{backgroundColor: objectList.highlightArray[index]}} draggable
                         onDragStart={(e) => handleDragStart(e, index)}
                         onDrop={(e) => handleDrop(e, index)}
                         onDragOver={handleDragOver}
@@ -286,10 +292,14 @@ const List = ({ inputRef, dateInputRef }) => {
                         >
                             x
                         </button>
+                        <button id={"edit"} onClick={()=>showAlertIF(index)} style={{marginLeft:"10px"}}>
+                            E
+                        </button>
                     </li>
                 ))}
             </ul>
             <AlertBox showAlert={showAlert} closeAlert={closeAlert} removeUnchecked={removeUnchecked} removeChecked={removeChecked} rmAll={removeAll}/>
+            <InputEdit showAlert={showAlertI} closeAlert={closeAlertIF} ref={inputAL} />
         </div>
     );
 };
