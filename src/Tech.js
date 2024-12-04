@@ -265,6 +265,19 @@ const List = ({ inputRef, dateInputRef }) => {
     }
     const closeAlertIF = () => {setShowAlertI(false)}
 
+    const edit = (index, newValue) => {
+        if (element.length > 0) {
+            // Update the element with the new value
+            objectList.liArray[index] = newValue;
+            setElement([...objectList.liArray]); // Spread operator to trigger re-render
+
+            saveToLocalStorage();
+            renderTasks(JSON.stringify(objectList, null, 2));
+        } else {
+            alert("There are no elements in the list");
+        }
+    };
+
     return (
         <div className={"containerForList"}>
             <button onClick={add} id={"add"} style={{borderRadius: "100%", width:"40px", textAlign: "center"}}>
@@ -306,7 +319,7 @@ const List = ({ inputRef, dateInputRef }) => {
                 ))}
             </ul>
             <AlertBox showAlert={showAlert} closeAlert={closeAlert} removeUnchecked={removeUnchecked} removeChecked={removeChecked} rmAll={removeAll}/>
-            <InputEdit showAlert={showAlertI} closeAlert={closeAlertIF} val={objectList.liArray[selectedIndex]} />
+            <InputEdit showAlert={showAlertI} closeAlert={closeAlertIF} val={objectList.liArray[selectedIndex]} editF={(newValue)=>edit(selectedIndex,newValue)}/>
         </div>
     );
 };
