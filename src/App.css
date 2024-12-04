@@ -160,3 +160,42 @@ div > ul{
 div > ul > li{
   margin: 8px 0;
 }
+
+div.input-edit{
+  position: fixed; /* So it floats on top */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue; /* Light red color for alert */
+  color: white;
+  border: 1px solid #f5c6cb;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  min-width: 300px;
+  cursor: pointer;
+}
+
+div.input-edit>input{
+  position: relative;
+  margin-bottom: 50px;
+  background-color: navy;
+}
+
+button.close-btn2{
+  margin: 0;
+  position: relative;
+  top: 27px;
+  background-color: navy;
+  width: 50px;
+}
+
+button.edit{
+  margin: 0;
+  position: relative;
+  top: 27px;
+  background-color: navy;
+  padding: 1px;
+  width: 100px;
+}

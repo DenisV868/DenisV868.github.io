@@ -33,14 +33,13 @@ const List = ({ inputRef, dateInputRef }) => {
     const [highlightedState, setHighlightedState] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
     const [showAlertI, setShowAlertI] = useState(false);
+    const [selectedIndex, setSelectedIndex] = useState(null);
     const checkboxes = useRef([]);
 
     const input = inputRef;
     const dateInput = dateInputRef;
 
     let inputAL = useRef([]);
-
-    let nexus = 0;
 
     useEffect(() => {
         const savedObjectList = localStorage.getItem("objectList");
@@ -260,7 +259,10 @@ const List = ({ inputRef, dateInputRef }) => {
         e.preventDefault(); // Prevent the default behavior to allow drop
     };
 
-    const showAlertIF = (index) => {setShowAlertI(true)}
+    const showAlertIF = (index) => {
+        setSelectedIndex(index)
+        setShowAlertI(true)
+    }
     const closeAlertIF = () => {setShowAlertI(false)}
 
     return (
@@ -273,23 +275,23 @@ const List = ({ inputRef, dateInputRef }) => {
             </button>
             <ul>
                 The list
-                {element.map((item, nexus) => (
-                    <li key={nexus} style={{backgroundColor: objectList.highlightArray[nexus]}} draggable
-                        onDragStart={(e) => handleDragStart(e, nexus)}
-                        onDrop={(e) => handleDrop(e, nexus)}
+                {element.map((item, index) => (
+                    <li key={index} style={{backgroundColor: objectList.highlightArray[index]}} draggable
+                        onDragStart={(e) => handleDragStart(e, index)}
+                        onDrop={(e) => handleDrop(e, index)}
                         onDragOver={handleDragOver}
                     >
                         {item}
                         {/* Controlled checkbox */}
                         <input
                             type="checkbox"
-                            id={`checkbox-${nexus}`}
-                            ref={checkboxes.current[nexus]} // Assign the ref for each checkbox
-                            checked={checkedState[nexus]} // Controlled by the checkedState
-                            onChange={() => handleClickCheck(nexus)} // Handle change by updating the state
+                            id={`checkbox-${index}`}
+                            ref={checkboxes.current[index]} // Assign the ref for each checkbox
+                            checked={checkedState[index]} // Controlled by the checkedState
+                            onChange={() => handleClickCheck(index)} // Handle change by updating the state
                         />
                         <button
-                            onClick={() => remove(nexus)}
+                            onClick={() => remove(index)}
                             className={
                                 "text-white bg-red-500 hover:bg-red-600 rounded-full p-2 focus:outline-none"
                             }
@@ -297,14 +299,14 @@ const List = ({ inputRef, dateInputRef }) => {
                         >
                             x
                         </button>
-                        <button id={"edit"} onClick={()=>showAlertIF(nexus)} style={{marginLeft:"10px"}}>
+                        <button id={"edit"} onClick={()=>showAlertIF(index)} style={{marginLeft:"10px"}}>
                             E
                         </button>
                     </li>
                 ))}
             </ul>
             <AlertBox showAlert={showAlert} closeAlert={closeAlert} removeUnchecked={removeUnchecked} removeChecked={removeChecked} rmAll={removeAll}/>
-            <InputEdit showAlert={showAlertI} closeAlert={closeAlertIF} ref={inputAL.current[nexus]} val={objectList.liArray[nexus]} />
+            <InputEdit showAlert={showAlertI} closeAlert={closeAlertIF} val={objectList.liArray[selectedIndex]} />
         </div>
     );
 };
