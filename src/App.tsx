@@ -7,7 +7,6 @@ function App() {
       <header className="App-header">
         <p>
           React lab
-
         </p>
       </header>
     </div>
