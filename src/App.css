@@ -32,8 +32,28 @@ div.container-for-product > img{
 }
 
 div.container-for-product{
-  width: 50px;
-  height: 100px;
-  font-size: 8px;
+  width: 100px;
+  height: 200px;
+  border: 1px solid black;
 }
 
+div.container-for-product>p.description{
+  text-align: center;
+  font-size: 5px;
+}
+
+div.container-for-product>button{
+  background-color : green;
+  margin-left: 30%;
+  cursor: pointer;
+}
+div.container-for-product>button:hover{
+  background-color: navy;
+}
+
+ul>li{
+  display: inline-block;
+  margin: 30px;
+  width: 50px;
+  height: 100px;
+}

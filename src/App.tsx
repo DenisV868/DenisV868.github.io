@@ -1,17 +1,8 @@
 import React from 'react';
 import './App.css';
-import ProductPreview from "./ProductPreview";
+import TestAuto from "./TestAuto";
 
 function App() {
-    function getUl() {
-        let lis:any = []
-        for(let i:number = 0; i < 5; i++){
-                lis.append(<ProductPreview />)
-        }
-        return <ul>
-            {lis.map((item:any) => <li>{item}</li>)}
-        </ul>
-    }
 
     return (
     <div className="App">
@@ -20,7 +11,7 @@ function App() {
                 React lab
             </p>
         </header>
-        {getUl()}
+        <TestAuto />
     </div>
   );
 }
