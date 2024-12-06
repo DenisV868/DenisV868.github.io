@@ -12,7 +12,7 @@ const TestAuto = () => {
         lis.push(<ProductPreview name={names[i]} img={images[i]} price={prices[i]}/>)
     }
     return <ul>
-        {lis.map((item:any) => <li>{item}</li>)}
+        {lis.map((item:any,index:number) => <li key={index} id={index.toString()}>{item}</li>)}
     </ul>
 }
 
