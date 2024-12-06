@@ -1,18 +1,26 @@
 import React from 'react';
 import './App.css';
 import TestAuto from "./TestAuto";
+import { BrowserRouter as  Router,Routes, Route } from 'react-router-dom'; // Import necessary components
+import Product from "./Product";
+
 
 function App() {
 
     return (
-    <div className="App">
-        <header className="App-header">
-            <p>
-                React lab
-            </p>
-        </header>
-        <TestAuto />
-    </div>
+    <Router>
+        <div className="App">
+            <header className="App-header">
+                <p>
+                    React lab
+                </p>
+            </header>
+            <Routes>
+                <Route path="/" element={<TestAuto />} />
+                <Route path="/product" element={<Product />} />
+            </Routes>
+        </div>
+    </Router>
   );
 }
 
