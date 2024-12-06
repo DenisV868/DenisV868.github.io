@@ -1,16 +1,18 @@
 import React from "react";
 
-const ProductPreview = () => {
+// @ts-ignore
+const ProductPreview = ({name, img,price}) => {
 
     return <div className={"container-for-product"}>
-        <p style={{fontSize:"10px"}}>Name</p>
-        <img src="https://cdn.myshoptet.com/usr/www.iphonarna.cz/user/shop/big/7035_apple-iphone-13-128gb-starlight.jpg?6387f80d" alt=""/>
+        <p style={{fontSize:"10px"}}>{name}</p>
+        <img src={img} alt=""/>
         <p className={"description"}>sansfknfnfnfksnfkwkndwjkfnwfknkwfnf
             wmnfkwfnnkd sjfvhbjfdb
             igvfsdhjdzfhbfdhvsfegyvwer</p>
+        <p style={{fontSize:"8px"}}>Cena: {price}</p>
         <button style={{ color:"white"}}>Buy</button>
     </div>
-  
+
 }
 
 export default ProductPreview;
