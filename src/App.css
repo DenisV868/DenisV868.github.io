@@ -31,6 +31,38 @@ div.container-for-product > img{
   height: 100px;
 }
 
+div.product>img.productImg{
+  width: 300px;
+  height: 250px;
+}
+
+div.product > h1{
+  position: relative;
+  left: 300px;
+  top: 50px;
+}
+
+div.product > p{
+
+  position: relative;
+  left: 340px;
+  font-size: 30px;
+  bottom: 75px;
+  background-color: blue;
+  color: white;
+  width: 100px;
+  text-align: center;
+
+}
+
+div.product{
+  border: 1px solid black;
+  width: 500px;
+  height: 340px;
+  position: relative;
+  left: 50px;
+}
+
 div.container-for-product{
   width: 100px;
   height: 220px;

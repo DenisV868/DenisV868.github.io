@@ -2,11 +2,11 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 
 // @ts-ignore
-const ProductPreview = ({name, img,price}) => {
+const ProductPreview = ({name, img,price,idP}) => {
 
     const navigate = useNavigate();
     function handleBtnClick ():void{
-        navigate("/product");
+        navigate(`/product/${name}/${encodeURIComponent(img)}/${price}`);
     }
 
     return <div className={"container-for-product"}>
@@ -16,7 +16,7 @@ const ProductPreview = ({name, img,price}) => {
             wmnfkwfnnkd sjfvhbjfdb
             igvfsdhjdzfhbfdhvsfegyvwer</p>
         <p style={{fontSize:"8px"}}>Cena: {price}</p>
-        <button style={{ color:"white"}} onClick={handleBtnClick}>Buy</button>
+        <button style={{ color:"white"}} onClick={handleBtnClick} id={idP}>Buy</button>
     </div>
 
 }

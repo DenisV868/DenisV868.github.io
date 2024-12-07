@@ -4,7 +4,6 @@ import TestAuto from "./TestAuto";
 import { BrowserRouter as  Router,Routes, Route } from 'react-router-dom'; // Import necessary components
 import Product from "./Product";
 
-
 function App() {
 
     return (
@@ -17,7 +16,7 @@ function App() {
             </header>
             <Routes>
                 <Route path="/" element={<TestAuto />} />
-                <Route path="/product" element={<Product />} />
+                <Route path="/product/:name/:img/:price" element={<Product/>} />
             </Routes>
         </div>
     </Router>
