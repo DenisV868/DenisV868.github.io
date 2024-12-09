@@ -34,20 +34,22 @@ div.container-for-product > img{
 div.product>img.productImg{
   width: 300px;
   height: 250px;
+  position: relative;
+  bottom: 16px;
 }
 
 div.product > h1{
   position: relative;
   left: 300px;
-  top: 50px;
+  top: 10px;
 }
 
-div.product > p{
+div.product > p.price{
 
   position: relative;
   left: 340px;
   font-size: 30px;
-  bottom: 75px;
+  bottom: 125px;
   background-color: blue;
   color: white;
   width: 100px;
@@ -55,9 +57,15 @@ div.product > p{
 
 }
 
+div.product > p.desc{
+  position: relative;
+  left: 303px;
+  bottom: 265px;
+}
+
 div.product{
-  border: 1px solid black;
-  width: 500px;
+  /*border: 1px solid black;*/
+  width: 700px;
   height: 340px;
   position: relative;
   left: 50px;

@@ -16,7 +16,7 @@ function App() {
             </header>
             <Routes>
                 <Route path="/" element={<TestAuto />} />
-                <Route path="/product/:name/:img/:price" element={<Product/>} />
+                <Route path="/product/:name/:img/:price/:description" element={<Product/>} />
             </Routes>
         </div>
     </Router>
