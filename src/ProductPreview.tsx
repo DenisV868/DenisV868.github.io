@@ -13,7 +13,7 @@ const ProductPreview = ({name, img,price,idP,description}) => {
         <p style={{fontSize:"10px"}}>{name}</p>
         <img src={img} alt=""/>
         <p className={"description"}>{description}</p>
-        <p style={{fontSize:"8px"}}>Cena: {price}</p>
+        <p style={{fontSize:"8px"}}>Price: {price}</p>
         <button style={{ color:"white"}} onClick={handleBtnClick} id={idP}>Buy</button>
     </div>
 

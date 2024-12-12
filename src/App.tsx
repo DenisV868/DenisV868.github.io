@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'; /
 import Product from "./Product";
 import About from "./About";
 
+let cart:any[] = [];
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
                 </header>
                 <Routes>
                     <Route path="/" element={<TestAuto/>}/>
-                    <Route path="/product/:name/:img/:price/:description" element={<Product/>}/>
+                    <Route path="/product/:name/:img/:price/:description" element={<Product cart={cart}/>}/>
                     <Route path="/about" element={<About/>}/>
                 </Routes>
             </div>
