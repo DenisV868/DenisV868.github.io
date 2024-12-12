@@ -130,6 +130,13 @@ ul>li{
 .home{
   text-decoration: none;
   color: grey;
+  margin-left:10px ;
+}
+
+.about{
+  text-decoration: none;
+  color: grey;
+  margin-left:10px ;
 }
 
 footer{

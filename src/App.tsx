@@ -16,7 +16,7 @@ function App() {
             <div className="App">
                 <header className="App-header">
                     <p>
-                        React lab
+                        FG3
                     </p>
                 </header>
                 <Routes>
@@ -27,16 +27,22 @@ function App() {
             </div>
             <footer>
                 <div>
-                    <ul>
-                        <li>
-                            <Link to="/" className="home">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/about" className="home">About</Link>
-                        </li>
+
+                    <div>
+                        <Link to="/" className="home">Home</Link>
+                    </div>
+                    <div>
+                        <Link to="/about" className="about">About</Link>
+                    </div>
+                    <div>
+
+                    </div>
+                    <ul>Shopping
+
                         <li>
 
                         </li>
+
                     </ul>
                 </div>
             </footer>
