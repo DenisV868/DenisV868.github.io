@@ -126,3 +126,13 @@ ul>li{
   border: 1px solid black;
   height: 100%;
 }
+
+.home{
+  text-decoration: none;
+  color: grey;
+}
+
+footer{
+  border-top: 1px solid grey;
+  margin-top: 10%;
+}
