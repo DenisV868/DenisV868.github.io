@@ -18,13 +18,16 @@
   height: 100px;
   width: 100%;
   color: white;
-  text-align: center;
+
 }
 
 header > p{
   position: relative;
   top: 30px;
+  width: 100%;
+  text-align: center;
 }
+
 
 div.container-for-product > img{
   width: 100px;
@@ -125,6 +128,10 @@ ul>li{
 .site-product{
   border: 1px solid black;
   height: 100%;
+}
+
+.header-div{
+  width: 100%;
 }
 
 .home{

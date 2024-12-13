@@ -19,6 +19,15 @@ function App() {
                     <p>
                         FG3
                     </p>
+                    <div className={"header-div"}>
+                        <div>
+                            <Link to="/" className="home">Home</Link>
+                        </div>
+                        <div>
+                            <Link to="/about" className="about">About</Link>
+                        </div>
+                    </div>
+
                 </header>
                 <Routes>
                     <Route path="/" element={<TestAuto/>}/>
@@ -28,16 +37,6 @@ function App() {
             </div>
             <footer>
                 <div>
-
-                    <div>
-                        <Link to="/" className="home">Home</Link>
-                    </div>
-                    <div>
-                        <Link to="/about" className="about">About</Link>
-                    </div>
-                    <div>
-
-                    </div>
                     <ul>Shopping
 
                         <li>
