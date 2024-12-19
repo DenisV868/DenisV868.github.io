@@ -20,6 +20,7 @@ const Clock = () => {
         if (minute < 10 && hour < 10){
             return `0${hour}:0${minute}`;
         }
+
         if (minute < 10) {
             return `${hour}:0${minute}`;
         }else {

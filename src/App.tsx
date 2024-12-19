@@ -51,6 +51,7 @@ function App() {
                 <Clock />
                 <p className="menu" onMouseOver={hoverHandler} onMouseOut={mouseOf} onClick={clickHandler}>
                     <img src="/icons8-react-30.png" alt="menu" />
+
                 </p>
 
                 {hovered && <Menu />}
