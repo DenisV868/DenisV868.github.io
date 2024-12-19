@@ -1,0 +1,78 @@
+.App {
+  margin: 0;
+}
+
+.App-header {
+
+}
+
+body{
+  background-color: navy;
+  margin: 0;
+}
+
+footer{
+  background-color: grey;
+  height: 40px;
+  width: 100%;
+  position: relative;
+  top: calc(94vh + 6.5px);
+  align-content: center;
+}
+
+footer > div{
+  height: 30px;
+  width: 99%;
+  border: 1px solid black;
+  margin: 5px;
+  color: black;
+}
+
+footer > div > p.date{
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  position: relative;
+  left: 178vh;
+}
+
+footer > div > p.time{
+  margin: 0;
+  padding: 0;
+  width: 0;
+  position: relative;
+  bottom: 69%;
+  left: calc(173vh - 5px);
+}
+
+footer > div > p.menu{
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: 30px;
+  position: relative;
+  bottom: 140%;
+  left: 10px;
+
+}
+
+
+footer > div > p.menu-menu{
+  margin: 0;
+  width: 400px;
+  height: 422px;
+  position: relative;
+  background-color: #4a4a4a;
+  bottom: 505px;
+
+}
+
+footer > div > p.menu > img{
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  bottom: 2px;
+  cursor: pointer;
+}
