@@ -1,33 +1,41 @@
-import React, {useState} from "react";
-//@ts-ignore
-import NameOfApp from "./NameOfApp.tsx";
+import React from "react";
 
-let apps:string[] = ["settings"];
+
+let apps:string[] = ["shutdown", "reboot", "settings"];
+let appIcons:string[] = ["/switch.png","/interface.png","/icons8-settings-30.png"];
+
 const  Menu = () =>{
 
-    const [hovered2, setHovered2] = useState(false);
+    const handleShutdown = () => {
 
-    const hoverHandler2 = () => {
-
-        setHovered2(true);
+        window.close()//browser will not do it
 
     }
 
-    const mouseOf2 = () => {
+    const handleReboot = () => {
 
-        setHovered2(false);
+        window.location.reload()//browser will not do it
 
     }
 
 
     return(<p className={"menu-menu"}>
+        <div className={"item-1"}>
+            <p className="settings">
+                <img src={appIcons[2]} alt={apps[2]}/>
+            </p>
+        </div>
+        <div className={"item-2"}>
+            <p className="reboot" onClick={handleReboot}>
+                <img src={appIcons[1]} alt={apps[1]}/>
+            </p>
+        </div>
+        <div className={"item-3"}>
+            <p className="shutdown" onClick={handleShutdown}>
+                <img src= {appIcons[0]} alt= {apps[0]} />
+            </p>
+        </div>
 
-        <p className="settings" onMouseOver={hoverHandler2} onMouseOut={mouseOf2}>
-            settings
-        </p>
-
-
-        {hovered2 && <NameOfApp name={apps[0]}/>}
     </p>)
 }
 

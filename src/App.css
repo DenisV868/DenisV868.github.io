@@ -33,7 +33,7 @@ footer > div > p.date{
   padding: 0;
   width: 100px;
   position: relative;
-  left: 180vh;
+  left: 179vh;
 }
 
 footer > div > p.time{
@@ -42,7 +42,7 @@ footer > div > p.time{
   width: 0;
   position: relative;
   bottom: 72%;
-  left: 175vh;
+  left: 174vh;
 }
 
 footer > div > p.menu{
@@ -78,7 +78,7 @@ footer > div > p.menu > img{
 
 }
 
-footer > div > p.menu > p.settings{
+footer > div > p.menu > div.item-1 > p.settings{
   margin: 0;
   padding: 0;
   width: 30px;
@@ -87,13 +87,34 @@ footer > div > p.menu > p.settings{
   bottom: 70px;
   left: 50px;
 }
-p.settings-app-name{
+
+.shutdown > img{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 270px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.reboot > img{
+  width: 35px;
+  height: 35px;
+  position: relative;
+  top: 270px;
+  left: 5px;
+  cursor: pointer;
+}
+
+.item-3{
   margin: 0;
   padding: 0;
-  position: relative;
-  bottom: 9px;
-  background-color: white;
-  font-size: 8px;
-  text-align: center;
-  width: 50px;
+  width: 0;
+  height: 0;
+}
+
+p.settings > img{
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
 }
