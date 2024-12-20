@@ -5,6 +5,7 @@ import Clock from "./Clock.tsx";
 //@ts-ignore
 import Menu from "./Menu.tsx";
 
+
 const getDate = ():string =>{
     let date:Date = new Date();
     let day:number = date.getDate();
@@ -37,6 +38,8 @@ function App() {
         }
     }
 
+
+
     return (
     <div className="App">
       <header className="App-header">
@@ -51,9 +54,7 @@ function App() {
                 <Clock />
                 <p className="menu" onMouseOver={hoverHandler} onMouseOut={mouseOf} onClick={clickHandler}>
                     <img src="/icons8-react-30.png" alt="menu" />
-
                 </p>
-
                 {hovered && <Menu />}
             </div>
       </footer>

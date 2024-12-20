@@ -33,7 +33,7 @@ footer > div > p.date{
   padding: 0;
   width: 100px;
   position: relative;
-  left: 178vh;
+  left: 180vh;
 }
 
 footer > div > p.time{
@@ -41,14 +41,14 @@ footer > div > p.time{
   padding: 0;
   width: 0;
   position: relative;
-  bottom: 69%;
-  left: calc(173vh - 5px);
+  bottom: 72%;
+  left: 175vh;
 }
 
 footer > div > p.menu{
   margin: 0;
   padding: 0;
-  width: 100px;
+  width: 30px;
   height: 30px;
   position: relative;
   bottom: 140%;
@@ -63,7 +63,7 @@ footer > div > p.menu-menu{
   height: 422px;
   position: relative;
   background-color: #4a4a4a;
-  bottom: 505px;
+  bottom: 520px;
 
 }
 
@@ -76,4 +76,24 @@ footer > div > p.menu > img{
   bottom: 2px;
   cursor: pointer;
 
+}
+
+footer > div > p.menu > p.settings{
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  bottom: 70px;
+  left: 50px;
+}
+p.settings-app-name{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  bottom: 9px;
+  background-color: white;
+  font-size: 8px;
+  text-align: center;
+  width: 50px;
 }
