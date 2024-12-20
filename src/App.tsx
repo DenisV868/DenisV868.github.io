@@ -1,13 +1,14 @@
 import React, {useState} from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
 // @ts-ignore
 import Clock from "./Clock.tsx";
 //@ts-ignore
 import Menu from "./Menu.tsx";
 //@ts-ignore
-import Window from "./Window.tsx";
-//@ts-ignore
 import Settings from "./Settings.tsx";
+//@ts-ignore
+import Home from "./Home.tsx";
 
 
 const getDate = ():string =>{
@@ -22,7 +23,6 @@ function App() {
 
     const [hovered, setHovered] = useState(false);
     const [clicked, setClicked] = useState(false);
-    const [appClicked, setAppClicked] = useState(false);
 
     const hoverHandler = () => {
         setHovered(true);
@@ -43,36 +43,37 @@ function App() {
         }
     }
 
-    const clickHandler2 = () => {
-        if(!appClicked) {
-            setAppClicked(true);
-            Window(Settings())
-        }else{
-            setAppClicked(false);
-        }
-    }
-
 
     return (
-    <div className="App">
-      <header className="App-header">
+    <Router>
+        <div className="App">
+            <header className="App-header">
 
-      </header>
+            </header>
 
-      <footer className="panel-background">
-            <div className="panel">
-                <p className="date">
-                    {getDate()}
-                </p>
-                <Clock />
-                <p className="menu" onMouseOver={hoverHandler} onMouseOut={mouseOf} onClick={clickHandler}>
-                    <img src="/icons8-react-30.png" alt="menu" />
-                </p>
-                {hovered && <Menu handlerClick={clickHandler2} a={appClicked}/>}
-            </div>
-      </footer>
-    </div>
-  );
+            <main className="main-content">
+                <Routes>
+                    <Route path="/" element={Home} />
+                    <Route path="/settings" element={<Settings/>}/>
+                </Routes>
+            </main>
+
+
+            <footer className="panel-background">
+                <div className="panel">
+                    <p className="date">
+                        {getDate()}
+                    </p>
+                    <Clock/>
+                    <p className="menu" onMouseOver={hoverHandler} onMouseOut={mouseOf} onClick={clickHandler}>
+                        <img src="/icons8-react-30.png" alt="menu"/>
+                    </p>
+                    {hovered && <Menu />}
+                </div>
+            </footer>
+        </div>
+    </Router>
+    );
 }
 
 export default App;

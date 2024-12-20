@@ -1,10 +1,20 @@
 import React from "react";
 
+import {useNavigate} from "react-router-dom";
+
+const Opener = (to:string) => {
+    let navigate = useNavigate()
+    return () => {
+        navigate(to);
+    };
+}
+
+
 
 let apps:string[] = ["shutdown", "reboot", "settings"];
 let appIcons:string[] = ["/switch.png","/interface.png","/icons8-settings-30.png"];
 
-const  Menu = ({handlerClick, a}) =>{
+const  Menu = () =>{
 
     const handleShutdown = () => {
 
@@ -21,8 +31,8 @@ const  Menu = ({handlerClick, a}) =>{
 
     return(<div className={"menu-menu"}>
         <div className={"menu-action"}>
-            <div className={"item-1"} onClick={handlerClick}>
-                <p className="settings">
+            <div className={"item-1"}>
+                <p className="settings" onClick={Opener("/settings")}>
                     <img src={appIcons[2]} alt={apps[2]}/>
                 </p>
             </div>
@@ -37,7 +47,6 @@ const  Menu = ({handlerClick, a}) =>{
                 </p>
             </div>
         </div>
-        {a && handlerClick}
     </div>)
 }
 

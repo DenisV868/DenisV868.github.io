@@ -126,8 +126,71 @@ p.settings > img{
   top: 5px;
 }
 
-.settings-app-in-window{
+.main-content{
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  position: relative;
+  top: 150px;
+}
+
+.settings-app{
+  position: relative;
+  left: 405px;
   width: 600px;
   height: 500px;
   background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.settings-app > div  >button{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: 524px;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+}
+
+.square{
+  position: relative;
+}
+
+.minimize, .cross{
+  position: relative;
+  bottom: 8px;
+}
+
+.square > img{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  right: 170% !important;
+  bottom: 15%;
+}
+
+.line{
+  border-bottom: 1px solid black;
+  padding: 0;
+  height: 20px;
+  background-color: #4a4a4a;
+}
+
+.logo{
+  width: 16px;
+  height: 16px;
+  position: relative;
+  bottom: 25%;
+}
+
+.cross:hover{
+  background-color: red;
+  color: white;
+}
+
+.username{
+  position: relative;
 }
