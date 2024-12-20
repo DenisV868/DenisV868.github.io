@@ -16,23 +16,25 @@ const Settings = () => {
 
 
     // Handle the dragging start
-    const gridSize = 20; // Define the snap grid size
+    const gridSize = 100; // Define grid size (e.g., 100px)
 
+    // Handle the drag start
     const handleDragStart = (e) => {
         const rect = e.target.getBoundingClientRect();
         e.dataTransfer.setData("startX", e.clientX - rect.left);
         e.dataTransfer.setData("startY", e.clientY - rect.top);
     };
 
+    // Handle dropping and snapping to grid
     const handleDrop = (e) => {
         const startX = e.dataTransfer.getData("startX");
         const startY = e.dataTransfer.getData("startY");
 
-        // Calculate new position
+        // Calculate new position based on where the drop happened
         let x = e.clientX - startX;
         let y = e.clientY - startY;
 
-        // Snap to nearest grid position
+        // Snap to the nearest grid cell
         x = Math.round(x / gridSize) * gridSize;
         y = Math.round(y / gridSize) * gridSize;
 

@@ -16,6 +16,8 @@ let appIcons:string[] = ["/switch.png","/interface.png","/icons8-settings-30.png
 
 const  Menu = () =>{
 
+    let navigate = useNavigate()
+
     const handleShutdown = () => {
 
         window.close()//browser will not do it
@@ -23,9 +25,8 @@ const  Menu = () =>{
     }
 
     const handleReboot = () => {
-
-        window.location.reload()//browser will not do it
-
+        navigate("/")
+        window.location.reload()
     }
 
 
