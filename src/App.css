@@ -53,18 +53,16 @@ footer > div > p.menu{
   position: relative;
   bottom: 140%;
   left: 10px;
-
 }
 
 
-footer > div > p.menu-menu{
+footer > div > div.menu-menu{
   margin: 0;
   width: 400px;
   height: 422px;
   position: relative;
   background-color: #4a4a4a;
   bottom: 520px;
-
 }
 
 footer > div > p.menu > img{
@@ -92,7 +90,7 @@ footer > div > p.menu > div.item-1 > p.settings{
   width: 30px;
   height: 30px;
   position: relative;
-  top: 270px;
+  top: 250px;
   left: 10px;
   cursor: pointer;
 }
@@ -101,7 +99,7 @@ footer > div > p.menu > div.item-1 > p.settings{
   width: 35px;
   height: 35px;
   position: relative;
-  top: 270px;
+  top: 250px;
   left: 5px;
   cursor: pointer;
 }
@@ -117,4 +115,19 @@ p.settings > img{
   cursor: pointer;
   margin-left: 10px;
   margin-top: 10px;
+}
+
+.menu-action{
+  border-right: 1px solid white;
+  width: 50px;
+  height: 410px;
+  padding: 0;
+  position: relative;
+  top: 5px;
+}
+
+.settings-app-in-window{
+  width: 600px;
+  height: 500px;
+  background-color: white;
 }

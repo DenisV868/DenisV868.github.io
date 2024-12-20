@@ -4,6 +4,10 @@ import './App.css';
 import Clock from "./Clock.tsx";
 //@ts-ignore
 import Menu from "./Menu.tsx";
+//@ts-ignore
+import Window from "./Window.tsx";
+//@ts-ignore
+import Settings from "./Settings.tsx";
 
 
 const getDate = ():string =>{
@@ -18,6 +22,7 @@ function App() {
 
     const [hovered, setHovered] = useState(false);
     const [clicked, setClicked] = useState(false);
+    const [appClicked, setAppClicked] = useState(false);
 
     const hoverHandler = () => {
         setHovered(true);
@@ -38,6 +43,14 @@ function App() {
         }
     }
 
+    const clickHandler2 = () => {
+        if(!appClicked) {
+            setAppClicked(true);
+            Window(Settings())
+        }else{
+            setAppClicked(false);
+        }
+    }
 
 
     return (
@@ -55,7 +68,7 @@ function App() {
                 <p className="menu" onMouseOver={hoverHandler} onMouseOut={mouseOf} onClick={clickHandler}>
                     <img src="/icons8-react-30.png" alt="menu" />
                 </p>
-                {hovered && <Menu />}
+                {hovered && <Menu handlerClick={clickHandler2} a={appClicked}/>}
             </div>
       </footer>
     </div>
