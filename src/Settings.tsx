@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {useNavigate} from "react-router-dom";
 
@@ -13,10 +13,10 @@ const Opener = (to:string) => {
 const Settings = () => {
 
     const [position, setPosition] = useState({ x: 0, y: 0 });
-
+    const [dragging, setDragging] = useState(false); // State to track dragging
 
     // Handle the dragging start
-    const gridSize = 100; // Define grid size (e.g., 100px)
+    const gridSize = 1; // Define grid size (e.g., 100px)
 
     // Handle the drag start
     const handleDragStart = (e) => {
@@ -38,19 +38,65 @@ const Settings = () => {
         x = Math.round(x / gridSize) * gridSize;
         y = Math.round(y / gridSize) * gridSize;
 
+        // Get the footer's position and height
+        const footer = document.querySelector("footer");
+        const footerTop = footer ? footer.getBoundingClientRect().top : window.innerHeight;
+
+        // Get the height of the settings div
+        const divHeight = e.target.offsetHeight;
+
+        // Prevent the div from being dropped below the footer
+        if (y + divHeight > footerTop) {
+            y = footerTop - divHeight; // Adjust the y position to stay above the footer
+        }
+
         setPosition({ x, y });
+        setDragging(false); // Stop dragging
     };
 
+    useEffect(() => {
+        // Attach global event listeners for dragover and drop on the window
+        const handleDragOver = (e) => {
+            e.preventDefault(); // Allow dropping
+        };
+
+        // Attach listeners
+        window.addEventListener("dragover", handleDragOver);
+        window.addEventListener("drop", handleDrop);
+
+        // Cleanup on unmount
+        return () => {
+            window.removeEventListener("dragover", handleDragOver);
+            window.removeEventListener("drop", handleDrop);
+        };
+    }, []);
+
     return (
-        <div className={"settings-app"} draggable onDragStart={handleDragStart} onDrop={handleDrop} onDragOver={(e:any) => e.preventDefault()} style={{ position: 'absolute',left: position.x, top: position.y,cursor: 'grab'}}>
+        <div className={"settings-app"} draggable onDragStart={handleDragStart} onDrop={handleDrop} onDragOver={(e:any) => e.preventDefault()} style={{ position: 'absolute',left: position.x, top: position.y,cursor: dragging ? "grabbing" : "grab",}}>
             <div className={"line"}><img src="/icons8-settings-16.png" alt="" className={"logo"}/>
                 <button className={"minimize"}>-</button>
                 <button className={"square"}><img src="/icons8-square-30.png" alt=""/></button>
                 <button onClick={Opener("/")} className={"cross"}>X</button>
             </div>
             <div className={"settings-menu"}>
-                <div className={"username"}>Denis Vimr</div>
+                <div className={"profile"}>
+                    <div className={"username"}>Denis Vimr</div>
+                </div>
+                <div className={"info"}>
+                    <div className={"sys-info-bookmark"}>Info</div>
+                </div>
+                <div className={"home"}>
+                    <div className={"home-bookmark"}>Home</div>
+                </div>
             </div>
+            <div className={"system-info"}>
+                <h1>System-info</h1>
+            </div>
+            <div className={"os-info"}>
+                <p>OS: React OS</p>
+                <p>Version: FG252</p>
+            </div>
+
         </div>)
 
 }
