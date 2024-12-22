@@ -254,3 +254,14 @@ p.settings > img{
   bottom: 500px;
   left: 110px;
 }
+
+
+.settings-icon-on-panel{
+  background-color: #4a4a4a;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 605px;
+  left: 60px;
+  z-index: 1;
+}

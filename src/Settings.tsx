@@ -72,32 +72,37 @@ const Settings = () => {
     }, []);
 
     return (
-        <div className={"settings-app"} draggable onDragStart={handleDragStart} onDrop={handleDrop} onDragOver={(e:any) => e.preventDefault()} style={{ position: 'absolute',left: position.x, top: position.y,cursor: dragging ? "grabbing" : "grab",}}>
-            <div className={"line"}><img src="/icons8-settings-16.png" alt="" className={"logo"}/>
-                <button className={"minimize"}>-</button>
-                <button className={"square"}><img src="/icons8-square-30.png" alt=""/></button>
-                <button onClick={Opener("/")} className={"cross"}>X</button>
-            </div>
-            <div className={"settings-menu"}>
-                <div className={"profile"}>
-                    <div className={"username"}>Denis Vimr</div>
+        <div  className="settings-app-div">
+            <div className={"settings-app"} draggable onDragStart={handleDragStart} onDrop={handleDrop} onDragOver={(e:any) => e.preventDefault()} style={{ position: 'absolute',left: position.x, top: position.y,cursor: dragging ? "grabbing" : "grab",}}>
+                <div className={"line"}><img src="/icons8-settings-16.png" alt="" className={"logo"}/>
+                    <button className={"minimize"}>-</button>
+                    <button className={"square"}><img src="/icons8-square-30.png" alt=""/></button>
+                    <button onClick={Opener("/")} className={"cross"}>X</button>
                 </div>
-                <div className={"info"}>
-                    <div className={"sys-info-bookmark"}>Info</div>
+                <div className={"settings-menu"}>
+                    <div className={"profile"}>
+                        <div className={"username"}>Denis Vimr</div>
+                    </div>
+                    <div className={"info"}>
+                        <div className={"sys-info-bookmark"}>Info</div>
+                    </div>
+                    <div className={"home"}>
+                        <div className={"home-bookmark"}>Home</div>
+                    </div>
                 </div>
-                <div className={"home"}>
-                    <div className={"home-bookmark"}>Home</div>
+                <div className={"system-info"}>
+                    <h1>System-info</h1>
+                </div>
+                <div className={"os-info"}>
+                    <p>OS: React OS</p>
+                    <p>Version: FG252</p>
                 </div>
             </div>
-            <div className={"system-info"}>
-                <h1>System-info</h1>
+            <div className={"settings-icon-on-panel"}>
+                <img src="/icons8-settings-30.png" alt=""/>
             </div>
-            <div className={"os-info"}>
-                <p>OS: React OS</p>
-                <p>Version: FG252</p>
-            </div>
-
-        </div>)
+        </div>
+    )
 
 }
 
