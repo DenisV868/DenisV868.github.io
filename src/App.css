@@ -33,7 +33,8 @@ footer > div > p.date{
   padding: 0;
   width: 100px;
   position: relative;
-  left: 179vh;
+  left: 175vh;
+  top: 9%;
 }
 
 footer > div > p.time{
@@ -41,8 +42,8 @@ footer > div > p.time{
   padding: 0;
   width: 0;
   position: relative;
-  bottom: 72%;
-  left: 174vh;
+  bottom: 65%;
+  left: 170vh;
 }
 
 footer > div > p.menu{
@@ -264,4 +265,18 @@ p.settings > img{
   top: 605px;
   left: 60px;
   z-index: 1;
+}
+
+.weather{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  bottom: 90px;
+  left: 187vh;
+  z-index: 1;
+}
+
+.weather-icon{
+  width: 30px;
+  height: 30px;
 }

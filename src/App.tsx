@@ -9,6 +9,8 @@ import Menu from "./Menu.tsx";
 import Settings from "./Settings.tsx";
 //@ts-ignore
 import Home from "./Home.tsx";
+//@ts-ignore
+import Weather from "./Weather.tsx";
 
 
 const getDate = ():string =>{
@@ -21,9 +23,12 @@ const getDate = ():string =>{
 
 function App() {
 
+    let weather = "sunny"
+
     const [hovered, setHovered] = useState(false);
     const [clicked, setClicked] = useState(false);
-
+    //const [hovered2, setHovered2] = useState(false);
+    //const [clicked2, setClicked2] = useState(false);
     const hoverHandler = () => {
         setHovered(true);
     }
@@ -42,6 +47,25 @@ function App() {
             setClicked(false);
         }
     }
+
+    /*const hoverHandler2 = () => {
+        setHovered2(true);
+    }
+
+    const mouseOf2 = () => {
+        if(!clicked) {
+            setHovered2(false);
+        }
+    }
+
+    const clickHandler2 = () => {
+        if(!clicked){
+            setClicked2(true);
+        }
+        if(clicked){
+            setClicked2(false);
+        }
+    }*/
 
 
     return (
@@ -68,6 +92,7 @@ function App() {
                     <p className="menu" onMouseOver={hoverHandler} onMouseOut={mouseOf} onClick={clickHandler}>
                         <img src="/icons8-react-30.png" alt="menu"/>
                     </p>
+                    <Weather weather={weather} />
                     {hovered && <Menu />}
                 </div>
             </footer>
