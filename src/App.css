@@ -16,7 +16,7 @@ footer{
   height: 40px;
   width: 100%;
   position: relative;
-  top: calc(94vh + 6.5px);
+  top: calc(95vh + 10px);
   align-content: center;
 }
 
@@ -33,7 +33,7 @@ footer > div > p.date{
   padding: 0;
   width: 100px;
   position: relative;
-  left: 175vh;
+  left: 92vw;
   top: 9%;
 }
 
@@ -42,8 +42,8 @@ footer > div > p.time{
   padding: 0;
   width: 0;
   position: relative;
-  bottom: 65%;
-  left: 170vh;
+  bottom: 55%;
+  left: calc(89vw + 20px);
 }
 
 footer > div > p.menu{
@@ -52,7 +52,7 @@ footer > div > p.menu{
   width: 30px;
   height: 30px;
   position: relative;
-  bottom: 140%;
+  bottom: 115%;
   left: 10px;
 }
 
@@ -63,7 +63,7 @@ footer > div > div.menu-menu{
   height: 422px;
   position: relative;
   background-color: #4a4a4a;
-  bottom: 520px;
+  bottom: 560px;
 }
 
 footer > div > p.menu > img{
@@ -271,12 +271,12 @@ p.settings > img{
   width: 30px;
   height: 30px;
   position: relative;
-  bottom: 90px;
-  left: 187vh;
+  bottom: 79px;
+  left: 97vw;
   z-index: 1;
 }
 
 .weather-icon{
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
