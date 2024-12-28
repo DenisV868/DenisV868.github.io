@@ -3,18 +3,26 @@ import React from "react";
 const Weather = ({weather}) => {
 
 
-    if (weather === "cloudy"){
-        return (<p className="weather">
-            <img className="weather-icon" src="/cloud.png" alt="weather"/>
-        </p>)
-    }
+    const renderWeatherIcon = () => {
+        switch (weather) {
+            case "sunny":
+                return <img src="/sun.png" alt="Sunny"/>;
+            case "cloudy":
+                return <img src="/cloud.png" alt="Cloudy"/>;
+            case "rainy":
+                return <img src="/icons/rainy.png" alt="Rainy"/>;
+            case "windy":
+                return <img src="/icons/windy.png" alt="Windy"/>;
+            default:
+                return <p>?</p>;
+        }
+    };
 
-    if (weather === "sunny"){
-        return (<p className="weather">
-            <img className="weather-icon" src="/sun.png" alt="weather"/>
-        </p>)
-    }
-
+    return (
+        <p className="weather">
+            {renderWeatherIcon()}
+        </p>
+    );
 }
 
 export default Weather;

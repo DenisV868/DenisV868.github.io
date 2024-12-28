@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
 // @ts-ignore
@@ -23,7 +23,36 @@ const getDate = ():string =>{
 
 function App() {
 
-    let weather = "sunny"
+    const [weather, setWeather] = useState(null);
+
+    useEffect(() => {
+        // Function to fetch weather from wttr API
+        const fetchWeather = async () => {
+            try {
+                const response = await fetch("https://wttr.in/?format=%C"); // %C gives weather condition
+                const data = await response.text();
+
+                // Set weather based on API response (e.g., "Sunny", "Cloudy", "Rain", etc.)
+                if (data.includes("Sunny")) {
+                    setWeather("sunny");
+                } else if (data.includes("Cloudy")) {
+                    setWeather("cloudy");
+                } else if (data.includes("Rain")) {
+                    setWeather("rainy");
+                } else if (data.includes("Windy")) {
+                    setWeather("windy");
+                } else {
+                    setWeather("unknown"); // Handle unknown conditions
+                }
+            } catch (error) {
+                console.error("Error fetching weather:", error);
+            }
+        };
+
+        // Fetch weather on component mount
+        fetchWeather();
+    }, []); // Empty dependency array to only run once on mount
+
 
     const [hovered, setHovered] = useState(false);
     const [clicked, setClicked] = useState(false);
