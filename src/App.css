@@ -33,7 +33,7 @@ footer > div > p.date{
   padding: 0;
   width: 100px;
   position: relative;
-  left: 92vw;
+  left: 90vw;
   top: 9%;
 }
 
@@ -43,7 +43,7 @@ footer > div > p.time{
   width: 0;
   position: relative;
   bottom: 55%;
-  left: calc(89vw + 20px);
+  left: calc(87vw + 10px);
 }
 
 footer > div > p.menu{
@@ -262,7 +262,7 @@ p.settings > img{
   width: 30px;
   height: 30px;
   position: relative;
-  top: 605px;
+  top: 855px;
   left: 60px;
   z-index: 1;
 }
@@ -271,8 +271,8 @@ p.settings > img{
   width: 30px;
   height: 30px;
   position: relative;
-  bottom: 79px;
-  left: 97vw;
+  bottom: 80px;
+  left: 95vw;
   z-index: 1;
 }
 

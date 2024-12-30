@@ -23,26 +23,43 @@ const getDate = ():string =>{
 
 function App() {
 
-    const [weather, setWeather] = useState(null);
+    const [weather, setWeather] = useState<string | null>(null);
 
     useEffect(() => {
-        // Function to fetch weather from wttr API
+        // Function to fetch weather from Open-Meteo API
         const fetchWeather = async () => {
             try {
-                const response = await fetch("https://wttr.in/?format=%C"); // %C gives weather condition
-                const data = await response.text();
+                // Latitude and longitude for the location (you can use the browser's Geolocation API for dynamic data)
+                const latitude = 50.0755; // Example: London
+                const longitude = 14.4378;
 
-                // Set weather based on API response (e.g., "Sunny", "Cloudy", "Rain", etc.)
-                if (data.includes("Sunny")) {
-                    setWeather("sunny");
-                } else if (data.includes("Cloudy")) {
+                const response = await fetch(
+                    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+                );
+                const data = await response.json();
+
+                // Extract weather code
+                const weatherCode = data.current_weather.weathercode;
+
+                // Map weather codes to conditions (refer to Open-Meteo's documentation for codes)
+                if ([0].includes(weatherCode)) {
+                    setWeather("clearsky");
+                } else if ([1, 2, 3].includes(weatherCode)) {
                     setWeather("cloudy");
-                } else if (data.includes("Rain")) {
+                } else if ([45, 48].includes(weatherCode)) {
+                    setWeather("foggy");
+                } else if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(weatherCode)) {
                     setWeather("rainy");
-                } else if (data.includes("Windy")) {
+                } else if ([56, 57, 66, 67].includes(weatherCode)) {
+                    setWeather("freezingrain");
+                } else if ([71, 73, 75, 85, 86].includes(weatherCode)) {
+                    setWeather("snowy");
+                } else if ([95, 96, 99].includes(weatherCode)) {
+                    setWeather("thunderstorm");
+                } else if ([77].includes(weatherCode)) {
                     setWeather("windy");
                 } else {
-                    setWeather("unknown"); // Handle unknown conditions
+                    setWeather("unknown");
                 }
             } catch (error) {
                 console.error("Error fetching weather:", error);
@@ -51,7 +68,7 @@ function App() {
 
         // Fetch weather on component mount
         fetchWeather();
-    }, []); // Empty dependency array to only run once on mount
+    }, []); // Empty dependency array to only run once on mount // Empty dependency array to only run once on mount
 
 
     const [hovered, setHovered] = useState(false);
