@@ -10,7 +10,7 @@ const Opener = (to:string) => {
 }
 
 
-const Settings = () => {
+const SettingsBg = () => {
 
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [dragging, setDragging] = useState(false); // State to track dragging
@@ -83,15 +83,15 @@ const Settings = () => {
                     <div className={"profile"}>
                         <div className={"username"}>Denis Vimr</div>
                     </div>
-                    <div className={"info"}>
-                        <div className={"sys-info-bookmark"}>Info</div>
+                    <div className={"info"} onClick={Opener("/settings")}>
+                        <div className={"sys-info-bookmark"} onClick={Opener("/settings")}>Info</div>
                     </div>
-                    <div className={"home"} onClick={Opener("/settings/wallpapers")}>
-                        <div className={"home-bookmark"} onClick={Opener("/settings/wallpapers")}>Wallpapers</div>
+                    <div className={"home"}>
+                        <div className={"home-bookmark"}>Wallpapers</div>
                     </div>
                 </div>
                 <div className={"system-info"}>
-                    <h1>System-info</h1>
+                    <h1>Wallpapers</h1>
                 </div>
                 <div className={"os-info"}>
                     <p>OS: React OS</p>
@@ -106,4 +106,4 @@ const Settings = () => {
 
 }
 
-export default Settings;
+export default SettingsBg;

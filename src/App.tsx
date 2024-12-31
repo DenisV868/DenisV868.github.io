@@ -11,6 +11,8 @@ import Settings from "./Settings.tsx";
 import Home from "./Home.tsx";
 //@ts-ignore
 import Weather from "./Weather.tsx";
+//@ts-ignore
+import SettingsBg from "./SettingsBg.tsx";
 
 
 const getDate = ():string =>{
@@ -125,6 +127,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={Home} />
                     <Route path="/settings" element={<Settings/>}/>
+                    <Route path="/settings/wallpapers" element={<SettingsBg/>}/>
                 </Routes>
             </main>
 
