@@ -71,6 +71,7 @@ const Settings = () => {
         };
     }, []);
 
+
     return (
         <div  className="settings-app-div">
             <div className={"settings-app"} draggable onDragStart={handleDragStart} onDrop={handleDrop} onDragOver={(e:any) => e.preventDefault()} style={{ position: 'absolute',left: position.x, top: position.y,cursor: dragging ? "grabbing" : "grab",}}>

@@ -83,6 +83,7 @@ const SettingsBg = () => {
                     <div className={"profile"}>
                         <div className={"username"}>Denis Vimr</div>
                     </div>
+
                     <div className={"info"} onClick={Opener("/settings")}>
                         <div className={"sys-info-bookmark"} onClick={Opener("/settings")}>Info</div>
                     </div>
