@@ -262,7 +262,7 @@ p.settings > img{
   width: 30px;
   height: 30px;
   position: relative;
-  top: 855px;
+  top: 853px;
   left: 60px;
   z-index: 1;
 }
@@ -279,4 +279,30 @@ p.settings > img{
 .weather-icon{
   width: 20px;
   height: 20px;
+}
+
+.blue:focus, .black:focus {
+  box-shadow: 0 0 10px lightblue;
+}
+
+.blue, .black {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+
+
+}
+
+.blue {
+  background-color: navy;
+  position: relative;
+  bottom: 490px;
+  left: 110px;
+}
+
+.black {
+  background-color: black;
+  position: relative;
+  bottom: 520px;
+  left: 150px;
 }
