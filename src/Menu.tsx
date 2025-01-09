@@ -29,6 +29,10 @@ const  Menu = () =>{
         window.location.reload()
     }
 
+    const  OpenFileManager = () => {
+        navigate("/fileManager/user/home");
+    }
+
 
     return(<div className={"menu-menu"}>
         <div className={"menu-action"}>
@@ -45,6 +49,12 @@ const  Menu = () =>{
             <div className={"item-3"}>
                 <p className="shutdown" onClick={handleShutdown}>
                     <img src= {appIcons[0]} alt= {apps[0]} />
+                </p>
+            </div>
+            <div className={"item-4"}>
+                <p onClick={OpenFileManager}>
+                    <img src="/folder.png" alt=""/>
+                    <p>File manger</p>
                 </p>
             </div>
         </div>

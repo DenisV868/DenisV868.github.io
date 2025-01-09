@@ -306,3 +306,23 @@ p.settings > img{
   bottom: 520px;
   left: 150px;
 }
+
+.item-4 > p > img{
+  height: 30px;
+  width: 30px;
+}
+
+.item-4 > p > p {
+  width: 100px;
+  color: white;
+  position: relative;
+  left: 40px;
+  bottom: 40px;
+}
+
+.item-4 > p{
+  position: relative;
+  left: 60px;
+  bottom: 121px;
+  cursor: pointer;
+}
