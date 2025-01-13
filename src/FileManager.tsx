@@ -76,10 +76,14 @@ const FileManager = () => {
         <div className={"settings-app"} draggable onDragStart={handleDragStart} onDrop={handleDrop}
              onDragOver={(e: any) => e.preventDefault()}
              style={{position: 'absolute', left: position.x, top: position.y, cursor: dragging ? "grabbing" : "grab",}}>
-            <div className={"line"}><img src="/folder.png" alt="" className={"logo"}/>
-                <button className={"minimize"}>-</button>
-                <button className={"square"}><img src="/icons8-square-30.png" alt=""/></button>
-                <button onClick={Opener("/")} className={"cross"}>X</button>
+            <div className={"line2"}><img src="/folder.png" alt="" className={"logo"}/>
+                <p></p>
+                <button className={"minimize2"}>-</button>
+                <button className={"square2"}><img src="/icons8-square-30.png" alt=""/></button>
+                <button onClick={Opener("/")} className={"cross2"}>X</button>
+            </div>
+            <div>
+
             </div>
         </div>
     </div>
