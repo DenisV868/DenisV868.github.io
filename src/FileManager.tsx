@@ -79,11 +79,11 @@ const FileManager = () => {
             <div className={"line2"}><img src="/folder.png" alt="" className={"logo"}/>
                 <p></p>
                 <button className={"minimize2"}>-</button>
-                <button className={"square2"}><img src="/icons8-square-30.png" alt=""/></button>
+                <button className={"square2"}><img src="/icons8-square-30.png" alt="" className={"square-icon"}/></button>
                 <button onClick={Opener("/")} className={"cross2"}>X</button>
             </div>
-            <div>
-
+            <div className={"filemanager-icon-on-panel"}>
+                <img src="/folder.png" alt="" className={"icon-filemanager"}/>
             </div>
         </div>
     </div>
