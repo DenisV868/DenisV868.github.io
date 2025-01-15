@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from "react";
+//@ts-ignore
+import Minimize from "./Minimize.tsx";
 
 import {useNavigate} from "react-router-dom";
 
@@ -76,7 +78,7 @@ const Settings = () => {
         <div  className="settings-app-div">
             <div className={"settings-app"} draggable onDragStart={handleDragStart} onDrop={handleDrop} onDragOver={(e:any) => e.preventDefault()} style={{ position: 'absolute',left: position.x, top: position.y,cursor: dragging ? "grabbing" : "grab",}}>
                 <div className={"line"}><img src="/icons8-settings-16.png" alt="" className={"logo"}/>
-                    <button className={"minimize"}>-</button>
+                    <button className={"minimize"} onClick={()=>Minimize("/fileManager/user/home","/icons8-settings-30.png", "/minimize" )}>-</button>
                     <button className={"square"}><img src="/icons8-square-30.png" alt=""/></button>
                     <button onClick={Opener("/")} className={"cross"}>X</button>
                 </div>
