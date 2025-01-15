@@ -15,8 +15,6 @@ import Weather from "./Weather.tsx";
 import SettingsBg from "./SettingsBg.tsx";
 //@ts-ignore
 import FileManager from "./FileManager.tsx";
-//@ts-ignore
-import Minimize from "./Minimize.tsx";
 
 
 const getDate = ():string =>{
@@ -133,7 +131,6 @@ function App() {
                     <Route path="/settings" element={<Settings/>}/>
                     <Route path="/settings/wallpapers" element={<SettingsBg/>}/>
                     <Route path="/fileManager/user/home" element={<FileManager/>}/>
-                    <Route path="/minimize" element={<Minimize />}/>
                 </Routes>
             </main>
 
