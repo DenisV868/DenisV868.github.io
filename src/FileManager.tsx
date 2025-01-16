@@ -15,6 +15,8 @@ const FileManager = () => {
     const [position, setPosition] = useState({x: 0, y: 0});
     const [dragging, setDragging] = useState(false); // State to track dragging
 
+
+
     // Handle the dragging start
     const gridSize = 1; // Define grid size (e.g., 100px)
 
@@ -79,12 +81,17 @@ const FileManager = () => {
             <div className={"line2"}><img src="/folder.png" alt="" className={"logo2"}/>
                 <p></p>
                 <button className={"minimize2"}>-</button>
-                <button className={"square2"}><img src="/icons8-square-30.png" alt="" className={"square-icon"}/></button>
+                <button className={"square2"}><img src="/icons8-square-30.png" alt="" className={"square-icon"}/>
+                </button>
                 <button onClick={Opener("/")} className={"cross2"}>X</button>
             </div>
-            <div className={"filemanager-icon-on-panel"}>
-                <img src="/folder.png" alt="" className={"icon-filemanager"}/>
+
+            <div className={"file-menu"}>
+
             </div>
+        </div>
+        <div className={"filemanager-icon-on-panel"}>
+            <img src="/folder.png" alt="" className={"icon-filemanager"}/>
         </div>
     </div>
 }

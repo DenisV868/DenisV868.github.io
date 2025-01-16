@@ -342,7 +342,7 @@ p.settings > img{
   width: 35px;
   height: 30px;
   position: relative;
-  top: 833px;
+  top: 853px;
   left: 60px;
   z-index: 1;
 
@@ -401,7 +401,11 @@ p.settings > img{
 
 }
 
-
+.file-menu{
+  height: 480px;
+  width: 100px;
+  border-right: 1px solid black;
+}
 
 
 
