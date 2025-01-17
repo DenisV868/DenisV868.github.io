@@ -15,10 +15,9 @@ const FileManager = () => {
     const [position, setPosition] = useState({x: 0, y: 0});
     const [dragging, setDragging] = useState(false); // State to track dragging
 
-
-
     // Handle the dragging start
     const gridSize = 1; // Define grid size (e.g., 100px)
+
 
     // Handle the drag start
     const handleDragStart = (e) => {
