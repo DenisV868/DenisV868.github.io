@@ -87,7 +87,8 @@ const FileManager = () => {
             </div>
 
             <div className={"file-menu"}>
-
+                <p style={{position:"relative", top:"10px"}} className={"homedr"}><img src="/home-button_icon-icons.com_72700.png" alt=""/>Home</p>
+                <p className={"docsdr"}><img src="/google-docs.png" alt=""/>Docs</p>
             </div>
         </div>
         <div className={"filemanager-icon-on-panel"}>

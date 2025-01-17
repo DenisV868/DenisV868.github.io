@@ -405,8 +405,24 @@ p.settings > img{
   height: 480px;
   width: 100px;
   border-right: 1px solid black;
+  position: relative;
+  bottom: 21px;
 }
 
+.file-menu > p{
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.homedr:hover,.docsdr:hover{
+  background-color: lightgrey;
+}
+
+.file-menu > p > img{
+  width: 12px;
+  height: 12px;
+}
 
 
 
