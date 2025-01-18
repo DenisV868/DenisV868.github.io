@@ -16,7 +16,7 @@ footer{
   height: 40px;
   width: 100%;
   position: relative;
-  top: calc(95vh + 10px);
+  top: calc(95vh + 5px);
   align-content: center;
 }
 
@@ -257,12 +257,12 @@ p.settings > img{
 }
 
 
-.settings-icon-on-panel{
+.icon-on-panel{
   background-color: #4a4a4a;
   width: 30px;
   height: 30px;
   position: relative;
-  top: 853px;
+  top: 732px;
   left: 60px;
   z-index: 1;
 }
@@ -406,7 +406,7 @@ p.settings > img{
   width: 100px;
   border-right: 1px solid black;
   position: relative;
-  bottom: 21px;
+  bottom: 17px;
 }
 
 .file-menu > p{
@@ -424,10 +424,21 @@ p.settings > img{
   height: 12px;
 }
 
+.tool-line{
+  width: 500px;
+  position: relative;
+  left: 100px;
+  bottom: 490px;
+  border-bottom: 1px solid black;
+
+}
 
 
-
-
+.tool-line > input{
+  position: relative;
+  bottom: 3px;
+  left: 10px;
+}
 
 
 

@@ -100,7 +100,7 @@ const Settings = () => {
                     <p>Version: FG252</p>
                 </div>
             </div>
-            <div className={"settings-icon-on-panel"}>
+            <div className={"icon-on-panel"}>
                 <img src="/icons8-settings-30.png" alt=""/>
             </div>
         </div>
