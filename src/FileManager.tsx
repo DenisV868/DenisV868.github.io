@@ -90,7 +90,7 @@ const FileManager = () => {
                 <p className={"docsdr"}><img src="/google-docs.png" alt=""/>Docs</p>
             </div>
         <div className={"tool-line"}>
-            <input type="text" className={"nav-file-bar"} value={"/home/denis/"} style={{width:"470px"}}/>
+            <input type="text" className={"nav-file-bar"} value={"/home/denis/"} style={{width:"470px"}}/><button><img src="/icons8-magnifying-glass-30.png" alt="" style={{width:"10px",height:"10px",position:"relative",right:"3px"}}/></button>
         </div>
         <div className={"drcontent"}>
 
