@@ -384,6 +384,7 @@ p.settings > img{
   height: 20px;
   width: 20px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .cross2, .minimize2{
@@ -453,15 +454,16 @@ p.settings > img{
 
 .tool-line > input{
   position: relative;
-  top: 8px;
   left: 10px;
+  top: 2px;
+  border-radius: 4px;
 }
 
 .file-search-btn {
 
   position: relative;
   left: 450px;
-  bottom: 15px;
+  bottom: 21px;
   background: transparent;
   border-color: transparent;
 
