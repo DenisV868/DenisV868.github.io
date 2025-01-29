@@ -97,9 +97,7 @@ const FileManager = () => {
         </div>
 
         </div>
-        <div className={"icon-on-panel"}>
-            <img src="/folder.png" alt="" className={"icon-filemanager"}/>
-        </div>
+
     </div>
 }
 

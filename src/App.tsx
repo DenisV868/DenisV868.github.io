@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes, useNavigate} from "react-router-dom";
 import './App.css';
 // @ts-ignore
 import Clock from "./Clock.tsx";
@@ -17,6 +17,7 @@ import SettingsBg from "./SettingsBg.tsx";
 import FileManager from "./FileManager.tsx";
 //@ts-ignore
 import Docs from "./Docs.tsx";
+
 
 
 const getDate = ():string =>{
@@ -118,7 +119,12 @@ function App() {
             setClicked2(false);
         }
     }*/
-
+    const Opener = (to:string) => {
+        let navigate = useNavigate()
+        return () => {
+            navigate(to);
+        };
+    }
 
     return (
     <Router>
