@@ -74,7 +74,7 @@ const FileManager = () => {
 
 
     return <div className="settings-app-div">
-        <div className={"settings-app"} draggable onDragStart={handleDragStart} onDrop={handleDrop}
+        <div className={"filemanager-app"} draggable onDragStart={handleDragStart} onDrop={handleDrop}
              onDragOver={(e: any) => e.preventDefault()}
              style={{position: 'absolute', left: position.x, top: position.y, cursor: dragging ? "grabbing" : "grab",}}>
             <div className={"line2"}><img src="/folder.png" alt="" className={"logo2"}/>
@@ -90,7 +90,7 @@ const FileManager = () => {
                 <p className={"docsdr"}><img src="/google-docs.png" alt=""/>Docs</p>
             </div>
         <div className={"tool-line"}>
-            <input type="text" className={"nav-file-bar"} value={"/home/denis/"} style={{width:"470px"}}/><button><img src="/icons8-magnifying-glass-30.png" alt="" style={{width:"10px",height:"10px",position:"relative",right:"3px"}}/></button>
+            <input type="text" className={"nav-file-bar"} value={"/home/denis/"} style={{width:"470px"}}/><button className={"file-search-btn"}><img src="/icons8-magnifying-glass-30.png" alt=""/></button>
         </div>
         <div className={"drcontent"}>
 

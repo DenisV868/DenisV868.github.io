@@ -156,6 +156,16 @@ p.settings > img{
   cursor: pointer;
 }
 
+.filemanager-app{
+  position: relative;
+  left: 405px;
+  width: 600px;
+  height: 500px;
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+}
+
 .square{
   position: relative;
 }
@@ -262,7 +272,7 @@ p.settings > img{
   width: 30px;
   height: 30px;
   position: relative;
-  top: 732px;
+  top: 848px;
   left: 60px;
   z-index: 1;
 }
@@ -370,6 +380,12 @@ p.settings > img{
   left: 540px !important;
 }
 
+.square2 ,.minimize2, .cross2  {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+}
+
 .cross2, .minimize2{
   position: relative;
   bottom: 43px;
@@ -425,6 +441,7 @@ p.settings > img{
 }
 
 .tool-line{
+  height: 50px;
   width: 500px;
   position: relative;
   left: 100px;
@@ -436,13 +453,24 @@ p.settings > img{
 
 .tool-line > input{
   position: relative;
-  bottom: 3px;
+  top: 8px;
   left: 10px;
 }
 
+.file-search-btn {
 
+  position: relative;
+  left: 450px;
+  bottom: 15px;
+  background: transparent;
+  border-color: transparent;
 
+}
 
+.file-search-btn>img{
+  width: 20px;
+  height: 20px;
+}
 
 
 
