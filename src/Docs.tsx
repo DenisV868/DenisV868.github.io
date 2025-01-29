@@ -10,7 +10,7 @@ const Opener = (to:string) => {
 }
 
 
-const FileManager = () => {
+const Docs = () => {
 
     const [position, setPosition] = useState({x: 0, y: 0});
     const [dragging, setDragging] = useState(false); // State to track dragging
@@ -86,15 +86,15 @@ const FileManager = () => {
             </div>
 
             <div className={"file-menu"}>
-                <p style={{position:"relative", top:"10px", backgroundColor:"lightgrey"}} className={"homedr"}><img src="/home-button_icon-icons.com_72700.png" alt=""/>Home</p>
-                <p className={"docsdr"} onClick={Opener("/fileManager/user/home/documents")}><img src="/google-docs.png" alt=""/>Docs</p>
+                <p style={{position:"relative", top:"10px" }} className={"homedr"} onClick={Opener("/fileManager/user/home")}><img src="/home-button_icon-icons.com_72700.png" alt=""/>Home</p>
+                <p className={"docsdr"}  style={{backgroundColor: "lightgrey"}}><img src="/google-docs.png" alt=""/>Docs</p>
             </div>
-        <div className={"tool-line"}>
-            <input type="text" className={"nav-file-bar"} value={"/home/denis/"} style={{width:"470px"}}/><button className={"file-search-btn"}><img src="/icons8-magnifying-glass-30.png" alt=""/></button>
-        </div>
-        <div className={"drcontent"}>
+            <div className={"tool-line"}>
+                <input type="text" className={"nav-file-bar"} value={"/home/denis/"} style={{width:"470px"}}/><button className={"file-search-btn"}><img src="/icons8-magnifying-glass-30.png" alt=""/></button>
+            </div>
+            <div className={"drcontent"}>
 
-        </div>
+            </div>
 
         </div>
         <div className={"icon-on-panel"}>
@@ -103,4 +103,4 @@ const FileManager = () => {
     </div>
 }
 
-export default FileManager;
+export default Docs;
