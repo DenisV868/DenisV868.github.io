@@ -63,7 +63,7 @@ footer > div > div.menu-menu{
   height: 422px;
   position: relative;
   background-color: #4a4a4a;
-  bottom: 560px;
+  bottom: 610px;
 }
 
 footer > div > p.menu > img{
@@ -474,7 +474,11 @@ p.settings > img{
   height: 20px;
 }
 
-
+.icon-on-panel-fileM{
+  position: relative;
+  bottom: 130px;
+  left: 50px;
+}
 
 
 

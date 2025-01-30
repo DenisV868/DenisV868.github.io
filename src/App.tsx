@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {BrowserRouter as Router, Route, Routes, useNavigate} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
 // @ts-ignore
 import Clock from "./Clock.tsx";
@@ -17,6 +17,8 @@ import SettingsBg from "./SettingsBg.tsx";
 import FileManager from "./FileManager.tsx";
 //@ts-ignore
 import Docs from "./Docs.tsx";
+//@ts-ignore
+import FileMIcon from "./FileMIcon.tsx";
 
 
 
@@ -119,12 +121,6 @@ function App() {
             setClicked2(false);
         }
     }*/
-    const Opener = (to:string) => {
-        let navigate = useNavigate()
-        return () => {
-            navigate(to);
-        };
-    }
 
     return (
     <Router>
@@ -154,6 +150,7 @@ function App() {
                         <img src="/icons8-react-30.png" alt="menu"/>
                     </p>
                     <Weather weather={weather} />
+                    <FileMIcon/>
                     {hovered && <Menu />}
                 </div>
             </footer>
