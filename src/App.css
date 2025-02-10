@@ -475,9 +475,11 @@ p.settings > img{
 }
 
 .icon-on-panel-fileM{
+  width: 30px;
   position: relative;
   bottom: 130px;
   left: 50px;
+  cursor: pointer;
 }
 
 
