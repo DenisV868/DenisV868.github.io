@@ -134,8 +134,8 @@ function App() {
                     <Route path="/" element={Home} />
                     <Route path="/settings" element={<Settings/>}/>
                     <Route path="/settings/wallpapers" element={<SettingsBg/>}/>
-                    <Route path="/fileManager/user/home" element={<FileManager/>}/>
-                    <Route path = "/fileManager/user/home/documents" element={<Docs/>}></Route>
+                    <Route path="/home/denis" element={<FileManager/>}/>
+                    <Route path = "/home/denis/documents" element={<Docs/>}></Route>
                 </Routes>
             </main>
 

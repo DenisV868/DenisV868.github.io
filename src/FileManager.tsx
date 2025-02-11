@@ -14,10 +14,13 @@ const FileManager = () => {
 
     const [position, setPosition] = useState({x: 0, y: 0});
     const [dragging, setDragging] = useState(false); // State to track dragging
-
+    const [val,setVal] = useState("/home/denis/");
     // Handle the dragging start
     const gridSize = 1; // Define grid size (e.g., 100px)
 
+    const handleChangeInput = (event) =>{
+        setVal(event.target.value)
+    }
 
     // Handle the drag start
     const handleDragStart = (e) => {
@@ -87,10 +90,10 @@ const FileManager = () => {
 
             <div className={"file-menu"}>
                 <p style={{position:"relative", top:"10px", backgroundColor:"lightgrey"}} className={"homedr"}><img src="/home-button_icon-icons.com_72700.png" alt=""/>Home</p>
-                <p className={"docsdr"} onClick={Opener("/fileManager/user/home/documents")}><img src="/google-docs.png" alt=""/>Docs</p>
+                <p className={"docsdr"} onClick={Opener("/home/denis/documents")}><img src="/google-docs.png" alt=""/>Docs</p>
             </div>
         <div className={"tool-line"}>
-            <input type="text" className={"nav-file-bar"} value={"/home/denis/"} style={{width:"470px"}}/><button className={"file-search-btn"}><img src="/icons8-magnifying-glass-30.png" alt=""/></button>
+            <input type="text" className={"nav-file-bar"} value={val} onChange={handleChangeInput} style={{width:"470px"}}/><button className={"file-search-btn"}><img src="/icons8-magnifying-glass-30.png" alt=""/></button>
         </div>
         <div className={"drcontent"}>
 

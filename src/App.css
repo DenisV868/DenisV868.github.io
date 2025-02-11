@@ -466,12 +466,13 @@ p.settings > img{
   bottom: 21px;
   background: transparent;
   border-color: transparent;
-
+  cursor: pointer;
 }
 
 .file-search-btn>img{
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .icon-on-panel-fileM{

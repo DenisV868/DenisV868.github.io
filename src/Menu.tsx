@@ -30,7 +30,7 @@ const  Menu = () =>{
     }
 
     const  OpenFileManager = () => {
-        navigate("/fileManager/user/home");
+        navigate("/home/denis");
     }
 
 

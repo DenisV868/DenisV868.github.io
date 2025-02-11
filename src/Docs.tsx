@@ -86,7 +86,7 @@ const Docs = () => {
             </div>
 
             <div className={"file-menu"}>
-                <p style={{position:"relative", top:"10px" }} className={"homedr"} onClick={Opener("/fileManager/user/home")}><img src="/home-button_icon-icons.com_72700.png" alt=""/>Home</p>
+                <p style={{position:"relative", top:"10px" }} className={"homedr"} onClick={Opener("/home")}><img src="/home-button_icon-icons.com_72700.png" alt=""/>Home</p>
                 <p className={"docsdr"}  style={{backgroundColor: "lightgrey"}}><img src="/google-docs.png" alt=""/>Docs</p>
             </div>
             <div className={"tool-line"}>

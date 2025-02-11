@@ -11,7 +11,7 @@ const Opener = (to:string) => {
 
 const FileMIcon = () => {
 
-   return(<p className={"icon-on-panel-fileM"} onClick={Opener("/fileManager/user/home")}>
+   return(<p className={"icon-on-panel-fileM"} onClick={Opener("/home/denis")}>
        <img src="/folder.png" alt="" className={"icon-filemanager"}/>
    </p>)
 
