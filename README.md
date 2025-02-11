@@ -48,4 +48,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## React OS
 
-This project is a portfolio site all projects a runable inside it as the "apps" of this so called "operating system", but in the "file manager" we have directories that are links to separate branches of this github repository where such projects are a single website instead of running in this portfolio app
+This project is a portfolio site all projects are runable inside it as "apps" of this so called "operating system", but in the "file manager" we have directories that are links to separate branches of this github repository where such projects are a single website instead of running in this portfolio app
