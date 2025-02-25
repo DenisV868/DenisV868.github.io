@@ -14,20 +14,25 @@ const Docs = () => {
 
     const [position, setPosition] = useState({x: 0, y: 0});
     const [dragging, setDragging] = useState(false); // State to track dragging
+    const [val,setVal] = useState("/home/denis/Docs");
+    const navigate = useNavigate()
 
     // Handle the dragging start
     const gridSize = 1; // Define grid size (e.g., 100px)
 
+    const handleChangeInput = (event:any) =>{
+        setVal(event.target.value)
+    }
 
     // Handle the drag start
-    const handleDragStart = (e) => {
+    const handleDragStart = (e:any) => {
         const rect = e.target.getBoundingClientRect();
         e.dataTransfer.setData("startX", e.clientX - rect.left);
         e.dataTransfer.setData("startY", e.clientY - rect.top);
     };
 
     // Handle dropping and snapping to grid
-    const handleDrop = (e) => {
+    const handleDrop = (e:any) => {
         const startX = e.dataTransfer.getData("startX");
         const startY = e.dataTransfer.getData("startY");
 
@@ -57,7 +62,7 @@ const Docs = () => {
 
     useEffect(() => {
         // Attach global event listeners for dragover and drop on the window
-        const handleDragOver = (e) => {
+        const handleDragOver = (e:any) => {
             e.preventDefault(); // Allow dropping
         };
 
@@ -71,6 +76,26 @@ const Docs = () => {
             window.removeEventListener("drop", handleDrop);
         };
     }, []);
+
+    let sval:string = val
+
+
+    useEffect(() => {
+
+
+        const handleEnterPress = (event:any) => {
+            if (event.key === "Enter"){
+                navigate(val)
+            }
+        }
+
+        window.addEventListener("keydown", handleEnterPress)
+
+        return () => {
+            window.removeEventListener("keydown",handleEnterPress)
+        }
+        
+    },[val,navigate])
 
 
     return <div className="settings-app-div">
@@ -90,7 +115,7 @@ const Docs = () => {
                 <p className={"docsdr"}  style={{backgroundColor: "lightgrey"}}><img src="/google-docs.png" alt=""/>Docs</p>
             </div>
             <div className={"tool-line"}>
-                <input type="text" className={"nav-file-bar"} value={"/home/denis/Docs"} style={{width:"470px"}}/><button className={"file-search-btn"}><img src="/icons8-magnifying-glass-30.png" alt=""/></button>
+                <input type="text" className={"nav-file-bar"} value={val} onChange={handleChangeInput} style={{width:"470px"}}/><button className={"file-search-btn"} onClick={Opener(sval)}><img src="/icons8-magnifying-glass-30.png" alt=""/></button>
             </div>
             <div className={"drcontent"}>
 

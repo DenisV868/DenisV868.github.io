@@ -19,13 +19,13 @@ const SettingsBg = () => {
 
     const gridSize = 1; // Define grid size (e.g., 100px)
 
-    const handleDragStart = (e) => {
+    const handleDragStart = (e:any) => {
         const rect = e.target.getBoundingClientRect();
         e.dataTransfer.setData("startX", e.clientX - rect.left);
         e.dataTransfer.setData("startY", e.clientY - rect.top);
     };
 
-    const handleDrop = (e) => {
+    const handleDrop = (e:any) => {
         const startX = e.dataTransfer.getData("startX");
         const startY = e.dataTransfer.getData("startY");
 
@@ -49,7 +49,7 @@ const SettingsBg = () => {
     };
 
     useEffect(() => {
-        const handleDragOver = (e) => {
+        const handleDragOver = (e:any) => {
             e.preventDefault();
         };
 
@@ -67,6 +67,7 @@ const SettingsBg = () => {
         body.style.backgroundColor = color;
         // Manually focus the blue element to trigger the shadow
         if (blueRef.current && body.style.backgroundColor === "navy") {
+            //@ts-ignore
             blueRef.current.focus();
         }
     };
@@ -76,6 +77,7 @@ const SettingsBg = () => {
         body.style.backgroundColor = color;
         // Manually focus the black element to trigger the shadow
         if (blackRef.current && body.style.backgroundColor === "black") {
+            //@ts-ignore
             blackRef.current.focus();
         }
     };
@@ -127,13 +129,13 @@ const SettingsBg = () => {
                     className="blue"
                     onClick={changeColorBlue}
                     ref={blueRef}
-                    tabIndex="0"
+                    tabIndex= {0}
                 ></div>
                 <div
                     className="black"
                     onClick={changeColorBlack}
                     ref={blackRef}
-                    tabIndex="1"
+                    tabIndex= {1}
                 ></div>
             </div>
             <div className="icon-on-panel">

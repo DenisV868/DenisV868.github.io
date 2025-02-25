@@ -20,14 +20,14 @@ const Settings = () => {
     const gridSize = 1; // Define grid size (e.g., 100px)
 
     // Handle the drag start
-    const handleDragStart = (e) => {
+    const handleDragStart = (e:any) => {
         const rect = e.target.getBoundingClientRect();
         e.dataTransfer.setData("startX", e.clientX - rect.left);
         e.dataTransfer.setData("startY", e.clientY - rect.top);
     };
 
     // Handle dropping and snapping to grid
-    const handleDrop = (e) => {
+    const handleDrop = (e:any) => {
         const startX = e.dataTransfer.getData("startX");
         const startY = e.dataTransfer.getData("startY");
 
@@ -57,7 +57,7 @@ const Settings = () => {
 
     useEffect(() => {
         // Attach global event listeners for dragover and drop on the window
-        const handleDragOver = (e) => {
+        const handleDragOver = (e:any) => {
             e.preventDefault(); // Allow dropping
         };
 

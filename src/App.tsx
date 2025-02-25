@@ -16,7 +16,7 @@ import SettingsBg from "./SettingsBg.tsx";
 //@ts-ignore
 import FileManager from "./FileManager.tsx";
 //@ts-ignore
-import Docs from "./Docs.tsx";
+import Docs from "./Docs"
 //@ts-ignore
 import FileMIcon from "./FileMIcon.tsx";
 
@@ -131,11 +131,11 @@ function App() {
 
             <main className="main-content">
                 <Routes>
-                    <Route path="/" element={Home} />
+                    <Route path="/" element={<Home/>} />
                     <Route path="/settings" element={<Settings/>}/>
                     <Route path="/settings/wallpapers" element={<SettingsBg/>}/>
                     <Route path="/home/denis" element={<FileManager/>}/>
-                    <Route path = "/home/denis/documents" element={<Docs/>}></Route>
+                    <Route path = "/home/denis/Docs" element={<Docs/>}></Route>
                 </Routes>
             </main>
 
