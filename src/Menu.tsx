@@ -54,7 +54,6 @@ const  Menu = () =>{
             <div className={"item-4"}>
                 <p onClick={OpenFileManager}>
                     <img src="/folder.png" alt=""/>
-                    <p>File manger</p>
                 </p>
             </div>
         </div>

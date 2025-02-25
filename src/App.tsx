@@ -21,7 +21,6 @@ import Docs from "./Docs"
 import FileMIcon from "./FileMIcon.tsx";
 
 
-
 const getDate = ():string =>{
     let date:Date = new Date();
     let day:number = date.getDate();
@@ -33,6 +32,17 @@ const getDate = ():string =>{
 function App() {
 
     const [weather, setWeather] = useState<string | null>(null);
+    const [color,setColor] = useState<string>(()=>{
+        const storedColor = localStorage.getItem("wallpapers")
+        return storedColor ? storedColor : "navy"
+    })
+
+    useEffect(()=>{
+
+        document.body.style.backgroundColor = color
+        localStorage.setItem("wallpapers",color)
+
+    },[color])
 
     useEffect(() => {
         // Function to fetch weather from Open-Meteo API

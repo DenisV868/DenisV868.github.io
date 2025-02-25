@@ -7,7 +7,6 @@
 }
 
 body{
-  background-color: navy;
   margin: 0;
 }
 
@@ -332,8 +331,8 @@ p.settings > img{
 
 .item-4 > p{
   position: relative;
-  left: 60px;
-  bottom: 121px;
+  left: 10px;
+  bottom: 70px;
   cursor: pointer;
 }
 

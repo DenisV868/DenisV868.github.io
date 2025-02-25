@@ -8,14 +8,18 @@ const Opener = (to: string) => {
     };
 };
 
-let body = document.getElementsByTagName("body")[0];
+
 
 const SettingsBg = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [dragging, setDragging] = useState(false); // State to track dragging
-    const [color, setColor] = useState("navy");
+    const [color, setColor] = useState<string>(() => {
+        const storedColor = localStorage.getItem("wallpapers")
+        return storedColor ? storedColor : "navy"
+    });
     const blueRef = useRef(null);
     const blackRef = useRef(null);
+
 
     const gridSize = 1; // Define grid size (e.g., 100px)
 
@@ -62,25 +66,31 @@ const SettingsBg = () => {
         };
     }, []);
 
-    const changeColorBlue = () => {
-        setColor("navy");
-        body.style.backgroundColor = color;
-        // Manually focus the blue element to trigger the shadow
-        if (blueRef.current && body.style.backgroundColor === "navy") {
-            //@ts-ignore
-            blueRef.current.focus();
-        }
-    };
+    const changeColor = (newColor: "navy" | "black") => {
+        //@ts-ignore
+        setColor(newColor)
+    }
 
-    const changeColorBlack = () => {
-        setColor("black");
-        body.style.backgroundColor = color;
-        // Manually focus the black element to trigger the shadow
-        if (blackRef.current && body.style.backgroundColor === "black") {
+    useEffect(()=>{
+
+        let body = document.getElementsByTagName("body")[0];
+        //@ts-ignore
+        body.style.backgroundColor = color
+
+        //@ts-ignore
+        localStorage.setItem("wallpapers",color)
+        //@ts-ignore
+        if (color ===  "navy" && blueRef.current){
             //@ts-ignore
-            blackRef.current.focus();
+            blueRef.current.focus()
         }
-    };
+        //@ts-ignore
+        if (color ===  "black" && blackRef.current){
+            //@ts-ignore
+            blackRef.current.focus()
+        }
+
+    },[color])
 
     return (
         <div className="settings-app-div">
@@ -127,13 +137,13 @@ const SettingsBg = () => {
 
                 <div
                     className="blue"
-                    onClick={changeColorBlue}
+                    onClick={()=>changeColor("navy")}
                     ref={blueRef}
                     tabIndex= {0}
                 ></div>
                 <div
                     className="black"
-                    onClick={changeColorBlack}
+                    onClick={()=>changeColor("black")}
                     ref={blackRef}
                     tabIndex= {1}
                 ></div>
