@@ -19,6 +19,7 @@ import FileManager from "./FileManager.tsx";
 import Docs from "./Docs"
 //@ts-ignore
 import FileMIcon from "./FileMIcon.tsx";
+import Terminal from "./Terminal";
 
 
 const getDate = ():string =>{
@@ -32,6 +33,7 @@ const getDate = ():string =>{
 function App() {
 
     const [weather, setWeather] = useState<string | null>(null);
+    //@ts-ignore
     const [color,setColor] = useState<string>(()=>{
         const storedColor = localStorage.getItem("wallpapers")
         return storedColor ? storedColor : "navy"
@@ -146,6 +148,7 @@ function App() {
                     <Route path="/settings/wallpapers" element={<SettingsBg/>}/>
                     <Route path="/home/denis" element={<FileManager/>}/>
                     <Route path = "/home/denis/Docs" element={<Docs/>}></Route>
+                    <Route path="/terminal" element={<Terminal/>}/>
                 </Routes>
             </main>
 
