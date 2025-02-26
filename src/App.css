@@ -271,7 +271,7 @@ p.settings > img{
   width: 31px;
   height: 30px;
   position: relative;
-  top: 885px;
+  top: 730px;
   left: 90px;
   z-index: 1;
 }
@@ -483,8 +483,66 @@ p.settings > img{
 }
 
 
+.terminal-app{
+  position: relative;
+  left: 405px;
+  width: 600px;
+  height: 500px;
+  background-color: black;
+  color: white;
+  border: 1px solid grey;
+  margin: 0;
+  padding: 0;
+}
 
 
+.square3{
+  position: relative;
+}
+
+.square3{
+  position: relative;
+  bottom: 35px;
+  left: 540px !important;
+}
+
+.square3 ,.minimize3, .cross3  {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.cross3, .minimize3{
+  position: relative;
+  bottom: 43px;
+}
+
+.cross3:hover{
+  background-color: red;
+  color: white;
+}
+
+.cross3{
+  position: relative;
+  left: 540px !important;
+}
+
+.minimize3{
+  position: relative;
+  left: 540px !important;
+}
+
+
+.logo3{
+
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 3px;
+  left: 3px;
+
+}
 
 
 
