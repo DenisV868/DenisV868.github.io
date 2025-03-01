@@ -13,9 +13,14 @@ const Terminal = () => {
     
     const [position, setPosition] = useState({x: 0, y: 0});
     const [dragging, setDragging] = useState(false); // State to track dragging
-    
-        const gridSize = 1; // Define grid size (e.g., 100px)
+    const [val,setVal] = useState("[denis@ReactOS]~")
+    const gridSize = 1; // Define grid size (e.g., 100px)
 
+    const handleChangeInput = (event:any) => {
+
+        setVal(event.target.value)
+
+    } 
 
     // Handle the drag start
     const handleDragStart = (e:any) => {
@@ -96,6 +101,7 @@ const Terminal = () => {
                     <button onClick={Opener("/")} className="cross3">
                         X
                     </button>
+                    <input type="text" value={val} onChange={handleChangeInput} />
                 </div>
         </div>
     </div>
