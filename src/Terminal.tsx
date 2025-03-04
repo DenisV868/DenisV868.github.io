@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
+// Function to handle navigation
 const Opener = (to: string) => {
     let navigate = useNavigate();
     return () => {
@@ -10,27 +10,28 @@ const Opener = (to: string) => {
 };
 
 const Terminal = () => {
-    
-    const [position, setPosition] = useState({x: 0, y: 0});
+    const [position, setPosition] = useState({ x: 0, y: 0 });
     const [dragging, setDragging] = useState(false); // State to track dragging
-    const [val,setVal] = useState("[denis@ReactOS]~")
+    const [val, setVal] = useState("[denis@ReactOS]~"); // Initial input value
+    const [history, setHistory] = useState<string[]>([]); // Command history
+    const [response, setResponse] = useState<string | null>(null); // Response to commands
+
     const gridSize = 1; // Define grid size (e.g., 100px)
 
-    const handleChangeInput = (event:any) => {
-
-        setVal(event.target.value)
-
-    } 
+    // Handle input change
+    const handleChangeInput = (event: any) => {
+        setVal(event.target.value);
+    };
 
     // Handle the drag start
-    const handleDragStart = (e:any) => {
+    const handleDragStart = (e: any) => {
         const rect = e.target.getBoundingClientRect();
         e.dataTransfer.setData("startX", e.clientX - rect.left);
         e.dataTransfer.setData("startY", e.clientY - rect.top);
     };
 
     // Handle dropping and snapping to grid
-    const handleDrop = (e:any) => {
+    const handleDrop = (e: any) => {
         const startX = e.dataTransfer.getData("startX");
         const startY = e.dataTransfer.getData("startY");
 
@@ -54,13 +55,38 @@ const Terminal = () => {
             y = footerTop - divHeight; // Adjust the y position to stay above the footer
         }
 
-        setPosition({x, y});
+        setPosition({ x, y });
         setDragging(false); // Stop dragging
+    };
+
+    const handleKeyDown = (e: any) => {
+        if (e.key === "Enter") {
+            // Add the current input to the history and generate a response
+            setHistory((prevHistory) => [...prevHistory, val]);
+
+            let cmdResponse = "";
+            const lowerVal = val;
+
+            // Command responses
+            if (lowerVal === "[denis@ReactOS]~hello") {
+                cmdResponse = "Hello, User!";
+            } else if (lowerVal === "[denis@ReactOS]~clear") {
+                setHistory([]); // Clear the terminal history
+                setResponse("Terminal cleared.");
+                setVal("[denis@ReactOS]~");
+                return;
+            } else {
+                cmdResponse = `Command not recognized: ${val}`;
+            }
+
+            setResponse(cmdResponse);
+            setVal("[denis@ReactOS]~"); // Reset the input field after command
+        }
     };
 
     useEffect(() => {
         // Attach global event listeners for dragover and drop on the window
-        const handleDragOver = (e:any) => {
+        const handleDragOver = (e: any) => {
             e.preventDefault(); // Allow dropping
         };
 
@@ -74,8 +100,6 @@ const Terminal = () => {
             window.removeEventListener("drop", handleDrop);
         };
     }, []);
-
-
 
     return (
         <div className="settings-app-div">
@@ -101,36 +125,29 @@ const Terminal = () => {
                     <button onClick={Opener("/")} className="cross3">
                         X
                     </button>
-                    <input type="text" value={val} onChange={handleChangeInput} />
                 </div>
+                <div className="terminal-window">
+                    <div className="history">
+                        {history.map((cmd, index) => (
+                            <div key={index} className="command">{cmd}</div>
+                        ))}
+                        {response && <div className="response">{response}</div>}
+                    </div>
+                    <input
+                        type="text"
+                        value={val}
+                        onChange={handleChangeInput}
+                        onKeyDown={handleKeyDown}
+                        autoFocus
+                        className="terminal-input"
+                    />
+                </div>
+            </div>
         </div>
-    </div>
-    )
-}
+    );
+};
 
-export default Terminal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Terminal;
 
 
 

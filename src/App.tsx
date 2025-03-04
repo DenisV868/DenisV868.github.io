@@ -34,7 +34,7 @@ function App() {
 
     const [weather, setWeather] = useState<string | null>(null);
     //@ts-ignore
-    const [color,setColor] = useState<string>(()=>{
+    const [color] = useState<string>(()=>{
         const storedColor = localStorage.getItem("wallpapers")
         return storedColor ? storedColor : "navy"
     })
