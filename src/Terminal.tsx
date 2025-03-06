@@ -120,7 +120,7 @@ const Terminal = () => {
                     <img src="/icons8-settings-16.png" alt="" className="logo3" />
                     <button className="minimize3">-</button>
                     <button className="square3">
-                        <img src="/icons8-square-30.png" alt="" />
+                        <img src="/icons8-square-30.png" alt="" className="square-icon2"/>
                     </button>
                     <button onClick={Opener("/")} className="cross3">
                         X

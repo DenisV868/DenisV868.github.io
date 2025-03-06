@@ -546,6 +546,14 @@ p.settings > img{
 
 
 
+.square-icon2{
+  position: relative;
+  right: 8px;
+  bottom: 2px;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+}
 
 
 
