@@ -15,7 +15,7 @@ footer{
   height: 40px;
   width: 100%;
   position: relative;
-  top: calc(95vh + 5px);
+  top: 90vh;
   align-content: center;
 }
 
@@ -32,7 +32,7 @@ footer > div > p.date{
   padding: 0;
   width: 100px;
   position: relative;
-  left: 90vw;
+  left: 88vw;
   top: 9%;
 }
 
@@ -42,7 +42,7 @@ footer > div > p.time{
   width: 0;
   position: relative;
   bottom: 55%;
-  left: calc(87vw + 10px);
+  left: 84vw;
 }
 
 footer > div > p.menu{
@@ -51,7 +51,7 @@ footer > div > p.menu{
   width: 30px;
   height: 30px;
   position: relative;
-  bottom: 115%;
+  bottom: 7vh;
   left: 10px;
 }
 
@@ -280,7 +280,7 @@ p.settings > img{
   width: 30px;
   height: 30px;
   position: relative;
-  bottom: 80px;
+  bottom: 13vh;
   left: 95vw;
   z-index: 1;
 }
@@ -351,7 +351,7 @@ p.settings > img{
   width: 35px;
   height: 30px;
   position: relative;
-  top: 853px;
+  top: 90vh;
   left: 60px;
   z-index: 1;
 
@@ -475,9 +475,9 @@ p.settings > img{
 }
 
 .icon-on-panel-fileM{
-  width: 30px;
+  width: 16px;
   position: relative;
-  bottom: 130px;
+  bottom: 23vh;
   left: 50px;
   cursor: pointer;
 }

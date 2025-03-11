@@ -27,9 +27,9 @@ const Weather = ({weather}) => {
         }
     };
     return (
-        <p className="weather">
+        <div className="weather">
             {renderWeatherIcon()}
-        </p>
+        </div>
     );
 }
 
