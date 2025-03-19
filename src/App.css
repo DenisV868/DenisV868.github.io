@@ -9,7 +9,8 @@
 body{
   margin: 0;
 }
-
+@media screen and (min-width: 1080px){
+  
 footer{
   background-color: grey;
   height: 40px;
@@ -33,7 +34,7 @@ footer > div > p.date{
   width: 100px;
   position: relative;
   left: 88vw;
-  top: 9%;
+  top: 21%;
 }
 
 footer > div > p.time{
@@ -41,8 +42,8 @@ footer > div > p.time{
   padding: 0;
   width: 0;
   position: relative;
-  bottom: 55%;
-  left: 84vw;
+  bottom: 44%;
+  left: 85vw;
 }
 
 footer > div > p.menu{
@@ -280,7 +281,7 @@ p.settings > img{
   width: 30px;
   height: 30px;
   position: relative;
-  bottom: 13vh;
+  bottom: 12vh;
   left: 95vw;
   z-index: 1;
 }
@@ -351,7 +352,7 @@ p.settings > img{
   width: 35px;
   height: 30px;
   position: relative;
-  top: 90vh;
+  top: 90px;
   left: 60px;
   z-index: 1;
 
@@ -477,7 +478,7 @@ p.settings > img{
 .icon-on-panel-fileM{
   width: 16px;
   position: relative;
-  bottom: 23vh;
+  bottom: calc(22vh - 2px);
   left: 50px;
   cursor: pointer;
 }
@@ -555,7 +556,7 @@ p.settings > img{
   z-index: 1;
 }
 
-
+}
 
 
 
