@@ -137,7 +137,7 @@ body {
     position: relative;
     left: 405px;
     width: 600px;
-    height: 500px;
+    height: 300px;
     background-color: grey;
     margin: 0;
     padding: 0;
@@ -157,7 +157,7 @@ body {
     position: relative;
     left: 405px;
     width: 600px;
-    height: 500px;
+    height: 300px;
     background-color: grey;
     margin: 0;
     padding: 0;
@@ -243,14 +243,14 @@ body {
   .settings-menu {
     border-right: 1px solid black;
     width: 100px;
-    height: 480px;
+    height: 280px;
   }
 
   .system-info {
     width: 500px;
     border-bottom: 1px solid black;
     position: relative;
-    bottom: 500px;
+    bottom: 300px;
     left: 100px;
   }
 
@@ -261,7 +261,7 @@ body {
 
   .os-info {
     position: relative;
-    bottom: 500px;
+    bottom: 300px;
     left: 110px;
   }
 
@@ -271,7 +271,7 @@ body {
     width: 31px;
     height: 30px;
     position: relative;
-    top: 730px;
+    top: 354px;
     left: 90px;
     z-index: 1;
   }
@@ -307,14 +307,14 @@ body {
   .blue {
     background-color: navy;
     position: relative;
-    bottom: 490px;
+    bottom: 290px;
     left: 110px;
   }
 
   .black {
     background-color: black;
     position: relative;
-    bottom: 520px;
+    bottom: 320px;
     left: 150px;
   }
 
@@ -423,7 +423,7 @@ body {
   }
 
   .file-menu {
-    height: 480px;
+    height: 280px;
     width: 100px;
     border-right: 1px solid black;
     position: relative;
@@ -451,7 +451,7 @@ body {
     width: 500px;
     position: relative;
     left: 100px;
-    bottom: 490px;
+    bottom: 290px;
     border-bottom: 1px solid black;
 
   }
